@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/work-sans"; // Supports weights 100-900
 import "@styles/index.css";
+import "keen-slider/keen-slider.min.css";
 import { ClientRouter } from "astro:transitions";
 import Header from "@components/shared/Header/Header.astro";
 import Footer from "@components/shared/Footer/Footer.astro";
@@ -24,6 +25,7 @@ const { title, ...rest } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
     <ClientRouter />
 
     <Seo {...rest} title={title} />
@@ -50,7 +52,6 @@ const { title, ...rest } = Astro.props;
 
     main {
       max-width: 1920px;
-      padding: var(--lg);
     }
   }
 </style>

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/work-sans": "5.1.1",
-    "astro": "5.4.1"
+    "astro": "5.4.1",
+    "keen-slider": "6.8.6"
   }
 }
