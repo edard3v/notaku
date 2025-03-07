@@ -1,0 +1,71 @@
+---
+import "keen-slider/keen-slider.min.css";
+---
+
+<div id="ks_slider" class="keen-slider">
+  <div class="keen-slider__slide">1</div>
+  <div class="keen-slider__slide">2</div>
+  <div class="keen-slider__slide">3</div>
+
+  <button id="ks_prev" class="prev">🠘</button>
+  <button id="ks_next" class="next">🠚</button>
+</div>
+
+<script>
+  import { Dom } from "@utils/dom/dom";
+  import KeenSlider from "keen-slider";
+
+  document.addEventListener("astro:page-load", () => {
+    const slider = new KeenSlider("#ks_slider", {
+      loop: true,
+      slides: { perView: 1 },
+      created: (_slider) => {}, // se ejecuta luego de estar montado el slider
+      slideChanged: (_slider) => {}, // se ejecuta cada que cambia diapo
+    });
+
+    const prev = Dom.select("ks_prev");
+    const next = Dom.select("ks_next");
+
+    prev?.addEventListener("click", () => {
+      slider.prev();
+    });
+
+    next?.addEventListener("click", () => {
+      slider.next();
+    });
+  });
+</script>
+
+<style>
+  .keen-slider {
+    width: 100%;
+    min-height: calc(100vh - var(--h_header));
+
+    .keen-slider__slide {
+      background: var(--bg_surf);
+      padding: var(--lg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--black);
+      background-color: transparent;
+      line-height: 1rem;
+      font-size: 2rem;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+  }
+</style>
