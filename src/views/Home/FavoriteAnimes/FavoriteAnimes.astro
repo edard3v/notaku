@@ -8,14 +8,16 @@ import { Icon } from "astro-icon/components";
 <div id="ks" class:list={["keen-slider", css.ks]}>
   {
     ANIMES.map((item) => (
-      <picture class:list={["keen-slider__slide", css.slide]}>
-        <img src={item.img.src} alt={item.name} />
+      <div class:list={["keen-slider__slide", css.slide]}>
+        <picture>
+          <img src={item.img.src} alt={item.name} />
+        </picture>
 
         <div class={css.synopsis}>
           <p>{item.synopsis}</p>
           <Btn>Ver</Btn>
         </div>
-      </picture>
+      </div>
     ))
   }
 
