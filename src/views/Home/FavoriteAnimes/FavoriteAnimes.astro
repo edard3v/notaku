@@ -1,6 +1,8 @@
 ---
+import Btn from "@components/buttons/Btn/Btn.astro";
 import { ANIMES } from "./animes";
 import css from "./FavoriteAnimes.module.css";
+import { Icon } from "astro-icon/components";
 ---
 
 <div id="ks" class:list={["keen-slider", css.ks]}>
@@ -8,12 +10,17 @@ import css from "./FavoriteAnimes.module.css";
     ANIMES.map((item) => (
       <picture class:list={["keen-slider__slide", css.slide]}>
         <img src={item.img.src} alt={item.name} />
+
+        <div class={css.synopsis}>
+          <p>{item.synopsis}</p>
+          <Btn>Ver</Btn>
+        </div>
       </picture>
     ))
   }
 
-  <button id="ks_prev" class={css.prev}>🠘</button>
-  <button id="ks_next" class={css.next}>🠚</button>
+  <button id="ks_prev" class={css.prev}><Icon name={"arrow"} /></button>
+  <button id="ks_next" class={css.next}><Icon name={"arrow"} /></button>
 </div>
 
 <script>
