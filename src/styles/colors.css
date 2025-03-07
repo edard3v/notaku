@@ -1,12 +1,12 @@
 :root {
-  --bg_main: black; /* Fondo Principal */
-  --bg_surf: rgb(12, 12, 12); /* Superficie */
-  --primary: hsl(260, 100%, 65%); /* Primario */
-  --secondary: #9d2f6b; /* Secundario */
-  --titles: #fff; /* Texto Principal */
-  --paras: #fff; /* Texto Secundario */
-  --hl: #ffbc42; /* Resaltado */
-  --accent: #dd4ea5; /* Acento */
+  --bg_main: #f5f5f5;
+  --bg_surf: #e0e0e0;
+  --primary: #2a9e91;
+  --secondary: #732dfd;
+  --titles: #212121;
+  --paras: #636363;
+  --hl: #ff9f1c;
+  --accent: #ff6b9d;
 
   /* Common */
   --blue: #489cfc;

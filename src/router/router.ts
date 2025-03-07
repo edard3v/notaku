@@ -1,7 +1,7 @@
 export const ROUTER = {
   home: {
     href: "/",
-    display: "Inicio",
+    display: "Notaku",
   },
 
   contact: {
