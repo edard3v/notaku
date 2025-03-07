@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {}
+
+const { class: cls, ...rest } = Astro.props;
+---
+
+<button {...rest} class:list={[cls]}>
+  <slot />
+</button>
+
+<style>
+  button {
+    padding: var(--md) var(--xl);
+    border-radius: var(--md);
+    background-color: var(--bg_surf);
+    border: var(--border);
+    color: var(--white);
+    transition: background-color 0.7s;
+
+    &:hover:not(:disabled) {
+      outline: 3px solid var(--primary);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--grey);
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):active {
+      transform: scale(0.95);
+    }
+  }
+</style>

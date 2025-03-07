@@ -1,0 +1,41 @@
+---
+import Link from "@components/links/Link/Link.astro";
+import { ROUTER } from "@router/router";
+---
+
+<header>
+  <nav>
+    <Link href={ROUTER.home.href}>{ROUTER.home.display}</Link>
+    <Link href={ROUTER.contact.href}>{ROUTER.contact.display}</Link>
+  </nav>
+</header>
+
+<style>
+  header {
+    border-bottom: var(--border);
+    min-height: var(--h_header);
+
+    display: grid;
+    align-items: center;
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--xl);
+
+      @media (min-width: 320px) and (max-width: 767px) {
+        gap: var(--lg);
+      }
+
+      a {
+        color: inherit;
+        text-transform: capitalize;
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+</style>
