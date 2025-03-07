@@ -16,7 +16,10 @@ import css from "./Slider.module.css";
   import KeenSlider from "keen-slider";
 
   document.addEventListener("astro:page-load", () => {
-    const slider = new KeenSlider("#ks", {
+    const ks = Dom.select("ks");
+    if (!ks) return;
+
+    const slider = new KeenSlider(ks, {
       loop: true,
       slides: { perView: 1 },
       created: (_slider) => {}, // se ejecuta luego de estar montado el slider

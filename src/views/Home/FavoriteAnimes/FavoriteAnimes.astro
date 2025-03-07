@@ -1,11 +1,16 @@
 ---
+import { ANIMES } from "./animes";
 import css from "./FavoriteAnimes.module.css";
 ---
 
 <div id="ks" class:list={["keen-slider", css.ks]}>
-  <div class:list={["keen-slider__slide", css.slide]}>1</div>
-  <div class:list={["keen-slider__slide", css.slide]}>2</div>
-  <div class:list={["keen-slider__slide", css.slide]}>3</div>
+  {
+    ANIMES.map((item) => (
+      <picture class:list={["keen-slider__slide", css.slide]}>
+        <img src={item.img.src} alt={item.name} />
+      </picture>
+    ))
+  }
 
   <button id="ks_prev" class={css.prev}>🠘</button>
   <button id="ks_next" class={css.next}>🠚</button>
@@ -16,7 +21,10 @@ import css from "./FavoriteAnimes.module.css";
   import KeenSlider from "keen-slider";
 
   document.addEventListener("astro:page-load", () => {
-    const slider = new KeenSlider("#ks", {
+    const ks = Dom.select("ks");
+    if (!ks) return;
+
+    const slider = new KeenSlider(ks, {
       loop: true,
       slides: { perView: 1 },
       created: (_slider) => {}, // se ejecuta luego de estar montado el slider
