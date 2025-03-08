@@ -18,6 +18,7 @@ export default function Slider() {
     }
   };
 
+  // Si ocupa montar cuando cambia X data, use createEffect
   onMount(() => {
     init_slider();
   });
