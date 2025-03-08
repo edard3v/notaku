@@ -1,15 +1,15 @@
 ---
 import css from "./Banner2.module.css";
 import Image from "astro/components/Image.astro";
-import kimetsu from "./kimetsu.avif";
+import totoro from "./totoro.avif";
 ---
 
 <picture class={css.banner}
   ><Image
-    src={kimetsu}
+    src={totoro}
     alt="chain saw man"
-    widths={[768, 1440, kimetsu.width]}
-    sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${kimetsu.width}px`}
+    widths={[768, 1440, totoro.width]}
+    sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${totoro.width}px`}
     format="avif"
   /></picture
 >
