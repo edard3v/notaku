@@ -13,9 +13,9 @@ import Image from "astro/components/Image.astro";
         <Image
           src={item.img}
           alt={item.name}
-          format="avif"
           widths={[768, 1440, item.img.width]}
           sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${item.img.width}px`}
+          format="avif"
         />
 
         <div class={css.synopsis}>
