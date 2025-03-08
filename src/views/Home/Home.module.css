@@ -1,0 +1,11 @@
+.home {
+  .top_anime {
+    min-height: 561px;
+    display: grid;
+    gap: var(--xl);
+
+    h2 {
+      text-align: center;
+    }
+  }
+}

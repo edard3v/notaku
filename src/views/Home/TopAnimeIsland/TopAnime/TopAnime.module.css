@@ -1,18 +1,26 @@
 .top_anime {
-  min-height: 400px;
-  padding-bottom: var(--xl);
+  min-height: 450px;
 
   .slide {
-    border: var(--br);
-    min-width: 300px;
+    min-width: 240px;
 
     a {
-      height: 100%;
+      width: 100%;
+      height: 85%;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
+    }
+
+    p {
+      height: 14%;
+      padding: var(--lg);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

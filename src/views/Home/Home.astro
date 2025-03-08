@@ -12,7 +12,10 @@ import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland";
   <main class={css.home}>
     <FavoriteAnimes />
     <Banner1 />
-    <TopAnimeIsland client:only="solid-js" />
+    <div class={css.top_anime}>
+      <h2>Top anime</h2>
+      <TopAnimeIsland client:only="solid-js" />
+    </div>
     <Banner2 />
   </main>
 </Layout>

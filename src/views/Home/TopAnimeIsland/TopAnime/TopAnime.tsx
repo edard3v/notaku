@@ -49,6 +49,7 @@ export default function TopAnime() {
                 <a href={"#"}>
                   <img src={item.images.webp.large_image_url} alt={item.title} />
                 </a>
+                <p>{item.genres.map((item) => item.name).join(", ")}</p>
               </div>
             )}
           </For>
