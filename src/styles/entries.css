@@ -1,0 +1,12 @@
+.brightness_ani {
+  animation: brightness_ani 1s both;
+}
+
+@keyframes brightness_ani {
+  0% {
+    filter: brightness(0.3);
+  }
+  100% {
+    filter: brightness(0.7);
+  }
+}

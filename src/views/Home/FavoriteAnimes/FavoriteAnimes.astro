@@ -14,6 +14,7 @@ import { Icon } from "astro-icon/components";
         </picture>
 
         <div class={css.synopsis}>
+          <h2 class={css.title}>{item.name}</h2>
           <p>{item.synopsis}</p>
           <Btn>Ver</Btn>
         </div>
@@ -31,17 +32,26 @@ import { Icon } from "astro-icon/components";
 
   document.addEventListener("astro:page-load", () => {
     const ks = Dom.select("ks");
+    const prev = Dom.select("ks_prev");
+    const next = Dom.select("ks_next");
+
     if (!ks) return;
 
     const slider = new KeenSlider(ks, {
       loop: true,
       slides: { perView: 1 },
-      created: (_slider) => {}, // se ejecuta luego de estar montado el slider
-      slideChanged: (_slider) => {}, // se ejecuta cada que cambia diapo
-    });
+      created: (slider) => {
+        slider.slides[0].classList.add("brightness_ani");
+      },
+      slideChanged: (slider) => {
+        const i = slider.track.details.rel;
+        const slide = slider.slides[i];
+        const prev_slide = slider.slides[Math.abs(i - 1)];
 
-    const prev = Dom.select("ks_prev");
-    const next = Dom.select("ks_next");
+        slide.classList.add("brightness_ani");
+        prev_slide.classList.remove("brightness_ani");
+      },
+    });
 
     prev?.addEventListener("click", () => {
       slider.prev();
