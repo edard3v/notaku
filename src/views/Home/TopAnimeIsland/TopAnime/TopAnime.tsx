@@ -14,7 +14,7 @@ export default function TopAnime() {
   const init_slider = () => {
     if (container) {
       slider = new KeenSlider(container, {
-        loop: true,
+        loop: false,
         slides: { perView: "auto", spacing: 32 },
         created: (_slider) => {}, // se ejecuta luego de estar montado el slider
         slideChanged: (_slider) => {}, // se ejecuta cada que cambia diapo
@@ -53,13 +53,6 @@ export default function TopAnime() {
               </div>
             )}
           </For>
-
-          <button class={css.prev} onclick={() => slider?.prev()}>
-            🠘
-          </button>
-          <button class={css.next} onclick={() => slider?.next()}>
-            🠚
-          </button>
         </>
       )}
     </div>
