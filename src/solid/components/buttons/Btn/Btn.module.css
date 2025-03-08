@@ -1,0 +1,53 @@
+.btn {
+  position: relative;
+  padding: var(--sm) var(--lg);
+  min-height: var(--h_input);
+  background-color: var(--primary);
+  border: none;
+  border-radius: var(--md);
+  color: inherit;
+  min-width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    outline: 2px solid currentColor;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: transparent;
+    outline: var(--border);
+    opacity: 0.5;
+  }
+
+  &:not(:disabled):active {
+    transform: scale(0.95);
+  }
+
+  .loading {
+    width: 25px;
+    aspect-ratio: 4;
+    background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0 / calc(100% / 3)
+      100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1s steps(4) infinite;
+  }
+
+  .err {
+    position: absolute;
+    color: var(--red);
+    width: 19px;
+    height: 19px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes l1 {
+  to {
+    clip-path: inset(0 -34% 0 0);
+  }
+}
