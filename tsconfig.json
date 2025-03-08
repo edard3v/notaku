@@ -12,7 +12,8 @@
       "@styles/*": ["./src/styles/*"],
       "@views/*": ["./src/views/*"],
       "@router/*": ["./src/router/*"],
-      "@solid/*": ["./src/solid/*"]
+      "@solid/*": ["./src/solid/*"],
+      "@jikan/*": ["./src/jikan/*"]
     },
     "jsx": "preserve",
     "jsxImportSource": "solid-js"

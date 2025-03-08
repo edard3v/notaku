@@ -6,8 +6,8 @@
 
   width: 60px;
   aspect-ratio: 4;
-  --_g: no-repeat radial-gradient(circle closest-side, var(--primary) 90%, var(--bg_main));
-  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  --x: no-repeat radial-gradient(circle closest-side, var(--primary) 90%, transparent);
+  background: var(--x) 0% 50%, var(--x) 50% 50%, var(--x) 100% 50%;
   background-size: calc(100% / 3) 100%;
   animation: l7 1s infinite linear;
 }

@@ -5,12 +5,14 @@ import { ROUTER } from "@router/router";
 import FavoriteAnimes from "./FavoriteAnimes/FavoriteAnimes.astro";
 import Banner1 from "./Banner1/Banner1.astro";
 import Banner2 from "./Banner2/Banner2.astro";
+import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland";
 ---
 
 <Layout title={ROUTER.home.display}>
   <main class={css.home}>
     <FavoriteAnimes />
     <Banner1 />
+    <TopAnimeIsland client:only="solid-js" />
     <Banner2 />
   </main>
 </Layout>
