@@ -11,6 +11,11 @@ export default function TopAnime() {
   let container: HTMLDivElement | undefined;
   let slider: KeenSliderInstance | undefined;
 
+  const query = createQuery(() => ({
+    queryKey: ["top_anime"],
+    queryFn: get_top_anime_fetch,
+  }));
+
   const init_slider = () => {
     if (container) {
       slider = new KeenSlider(container, {
@@ -30,11 +35,6 @@ export default function TopAnime() {
   onCleanup(() => {
     slider?.destroy();
   });
-
-  const query = createQuery(() => ({
-    queryKey: ["top_anime"],
-    queryFn: get_top_anime_fetch,
-  }));
 
   return (
     <div ref={(el) => (container = el!)} class={cls(["keen-slider", css.top_anime])}>
