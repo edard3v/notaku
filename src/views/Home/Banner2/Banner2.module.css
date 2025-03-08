@@ -1,0 +1,8 @@
+.banner {
+  height: 90dvh;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
