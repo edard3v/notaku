@@ -4,9 +4,9 @@
 
 @keyframes brightness_ani {
   0% {
-    filter: brightness(0.3);
+    filter: brightness(0.4);
   }
   100% {
-    filter: brightness(0.7);
+    filter: brightness(0.8);
   }
 }
