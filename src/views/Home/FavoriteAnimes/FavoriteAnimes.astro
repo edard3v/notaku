@@ -3,15 +3,20 @@ import Btn from "@components/buttons/Btn/Btn.astro";
 import { ANIMES } from "./animes";
 import css from "./FavoriteAnimes.module.css";
 import { Icon } from "astro-icon/components";
+import Image from "astro/components/Image.astro";
 ---
 
 <div id="ks" class:list={["keen-slider", css.ks]}>
   {
     ANIMES.map((item) => (
       <div class:list={["keen-slider__slide", css.slide]}>
-        <picture>
-          <img src={item.img.src} alt={item.name} />
-        </picture>
+        <Image
+          src={item.img}
+          alt={item.name}
+          format="avif"
+          widths={[768, 1440, item.img.width]}
+          sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${item.img.width}px`}
+        />
 
         <div class={css.synopsis}>
           <h2 class={css.title}>{item.name}</h2>
