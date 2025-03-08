@@ -3,10 +3,12 @@ import css from "./Home.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { ROUTER } from "@router/router";
 import FavoriteAnimes from "./FavoriteAnimes/FavoriteAnimes.astro";
+import Banner1 from "./Banner1/Banner1.astro";
 ---
 
 <Layout title={ROUTER.home.display}>
   <main class={css.home}>
     <FavoriteAnimes />
+    <Banner1 />
   </main>
 </Layout>

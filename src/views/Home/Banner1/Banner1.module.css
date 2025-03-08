@@ -1,0 +1,10 @@
+.banner {
+  padding: var(--xl);
+  background-color: var(--black);
+  height: 90dvh;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}

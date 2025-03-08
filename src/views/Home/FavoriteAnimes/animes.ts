@@ -7,13 +7,6 @@ import classroom_of_the_elite from "./imgs/classroom_of_the_elite.avif";
 export const ANIMES = [
   {
     id: crypto.randomUUID(),
-    name: "Darker than Black",
-    img: darker_than_black,
-    synopsis:
-      "Hace diez años, apareció la 'Puerta del Infierno' en Tokio, alterando el cielo y trayendo a los 'Contratistas', individuos con habilidades sobrenaturales que deben pagar un precio por usarlas. Hei, un misterioso Contratista conocido como 'BK201', trabaja en la sombra para una organización secreta mientras oculta su verdadero propósito.",
-  },
-  {
-    id: crypto.randomUUID(),
     name: "Monster",
     img: monster,
     synopsis:
@@ -39,5 +32,12 @@ export const ANIMES = [
     img: classroom_of_the_elite,
     synopsis:
       "Kiyotaka Ayanokouji ingresa a la prestigiosa Escuela de Educación Avanzada, donde los estudiantes son clasificados por rendimiento. A pesar de estar en la Clase D, la más baja, su fría inteligencia y habilidades ocultas le permiten manipular su entorno y desafiar el sistema.",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Darker than Black",
+    img: darker_than_black,
+    synopsis:
+      "Hace diez años, apareció la 'Puerta del Infierno' en Tokio, alterando el cielo y trayendo a los 'Contratistas', individuos con habilidades sobrenaturales que deben pagar un precio por usarlas. Hei, un misterioso Contratista conocido como 'BK201', trabaja en la sombra para una organización secreta mientras oculta su verdadero propósito.",
   },
 ];
