@@ -10,6 +10,10 @@ export default function LiteYoutube(props: Props) {
   createEffect(() => {
     if (lite_youtube_ref && props.video_id) {
       lite_youtube_ref.setAttribute("videoid", props.video_id);
+
+      setTimeout(() => {
+        lite_youtube_ref.style.opacity = "1";
+      }, 150);
     }
   });
 

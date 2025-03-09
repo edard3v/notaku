@@ -16,6 +16,7 @@ export default function AnimeById() {
 
   const youtube_id = () => query.data?.data.trailer.youtube_id || "mqDg5Oi8S_E";
   const title = () => query.data?.data.title;
+  const synopsis = () => query.data?.data.synopsis;
 
   return (
     <div class={css.anime_by_id}>
@@ -26,6 +27,7 @@ export default function AnimeById() {
         <>
           <h1>{title()}</h1>
           <LiteYoutube video_id={youtube_id()} class={css.lite} />
+          <p>{synopsis()}</p>
         </>
       )}
     </div>

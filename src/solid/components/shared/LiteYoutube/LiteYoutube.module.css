@@ -1,4 +1,7 @@
-/* .lite {
-  :first-child {
+.lite {
+  position: relative;
+
+  :nth-child(1) {
+    opacity: 0;
   }
-} */
+}
