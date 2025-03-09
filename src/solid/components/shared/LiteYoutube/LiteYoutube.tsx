@@ -1,5 +1,5 @@
 import css from "./LiteYoutube.module.css";
-import { createEffect } from "solid-js";
+import { createEffect, onMount } from "solid-js";
 import "@justinribeiro/lite-youtube";
 import { cls } from "@utils/cls";
 import type { JSX } from "solid-js";
@@ -13,9 +13,13 @@ export default function LiteYoutube(props: Props) {
     }
   });
 
+  onMount(() => {
+    console.log("oe");
+  });
+
   return (
     <div class={cls([css.lite, props.class])}>
-      <lite-youtube ref={lite_youtube_ref} videoid={props.video_id}></lite-youtube>
+      <lite-youtube ref={lite_youtube_ref}></lite-youtube>
     </div>
   );
 }
