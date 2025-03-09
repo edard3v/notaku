@@ -2,6 +2,10 @@
   position: relative;
   min-height: 100%;
 
+  h1 {
+    text-align: center;
+  }
+
   .lite {
     max-width: 720px;
     margin-left: auto;
