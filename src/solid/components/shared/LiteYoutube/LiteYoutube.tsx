@@ -11,15 +11,15 @@ export default function LiteYoutube(props: Props) {
     if (lite_youtube_ref && props.video_id) {
       lite_youtube_ref.setAttribute("videoid", props.video_id);
 
-      setTimeout(() => {
+      lite_youtube_ref.addEventListener("liteYoutubeIframeLoaded", () => {
         lite_youtube_ref.style.opacity = "1";
-      }, 150);
+      });
     }
   });
 
   return (
     <div class={cls([css.lite, props.class])}>
-      <lite-youtube ref={lite_youtube_ref}></lite-youtube>
+      <lite-youtube ref={lite_youtube_ref} style="opacity:0"></lite-youtube>
     </div>
   );
 }
