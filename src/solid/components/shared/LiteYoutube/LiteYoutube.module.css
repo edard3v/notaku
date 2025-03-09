@@ -1,12 +1,16 @@
-/* .lite {
+.lite {
+  position: relative;
+  max-width: 720px;
+
   lite-youtube {
     opacity: 0;
   }
-} */
-
-lite-youtube {
-  display: block;
-  position: relative;
-  width: 100%;
-  padding-bottom: calc(100% / (16 / 9));
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/chainsaw_man.avif");
+  }
 }

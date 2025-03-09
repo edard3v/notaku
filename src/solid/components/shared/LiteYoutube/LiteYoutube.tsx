@@ -6,6 +6,7 @@ import type { JSX } from "solid-js";
 
 export default function LiteYoutube(props: Props) {
   let lite_youtube_ref: HTMLElement | undefined;
+  let shadow_ref: HTMLDivElement | undefined;
 
   createEffect(() => {
     if (lite_youtube_ref && props.video_id) {
@@ -13,13 +14,18 @@ export default function LiteYoutube(props: Props) {
 
       lite_youtube_ref.addEventListener("liteYoutubeIframeLoaded", () => {
         lite_youtube_ref.style.opacity = "1";
+
+        if (shadow_ref) {
+          shadow_ref.style.backgroundColor = "transparent";
+        }
       });
     }
   });
 
   return (
     <div class={cls([css.lite, props.class])}>
-      <lite-youtube ref={lite_youtube_ref} style="opacity:0"></lite-youtube>
+      <div ref={shadow_ref} class={css.shadow}></div>
+      <lite-youtube ref={lite_youtube_ref}></lite-youtube>
     </div>
   );
 }
