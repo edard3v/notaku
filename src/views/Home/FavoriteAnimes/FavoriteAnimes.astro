@@ -4,6 +4,7 @@ import { ANIMES } from "./animes";
 import css from "./FavoriteAnimes.module.css";
 import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
+import { ROUTER } from "@router/router";
 ---
 
 <div id="ks" class:list={["keen-slider", css.ks]}>
@@ -21,7 +22,9 @@ import Image from "astro/components/Image.astro";
         <div class={css.synopsis}>
           <h2 class={css.title}>{item.name}</h2>
           <p>{item.synopsis}</p>
-          <Btn>Ver</Btn>
+          <a href={`${ROUTER.anime.href}?id=${item.id}`}>
+            <Btn>Ver</Btn>
+          </a>
         </div>
       </div>
     ))

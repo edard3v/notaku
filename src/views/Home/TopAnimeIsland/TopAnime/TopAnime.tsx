@@ -6,6 +6,7 @@ import ErrorComp from "@solid/components/errors/ErrorComp/ErrorComp";
 import Loading from "@solid/components/loaders/Loading/Loading";
 import KeenSlider, { type KeenSliderInstance } from "keen-slider";
 import { createEffect, For, onCleanup } from "solid-js";
+import { ROUTER } from "@router/router";
 
 export default function TopAnime() {
   let container: HTMLDivElement | undefined;
@@ -46,7 +47,7 @@ export default function TopAnime() {
           <For each={query.data.data}>
             {(item) => (
               <div class={cls(["keen-slider__slide", css.slide])}>
-                <a href={"#"}>
+                <a href={`${ROUTER.anime.href}?id=${item.mal_id}`}>
                   <img src={item.images.webp.large_image_url} alt={item.title} />
                 </a>
                 <p>{item.genres.map((item) => item.name).join(", ")}</p>
