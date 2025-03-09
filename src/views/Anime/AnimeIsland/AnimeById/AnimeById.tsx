@@ -5,6 +5,7 @@ import { get_anime_by_id_full_fetch } from "./get_anime_by_id_full_fetch/get_ani
 import ErrorComp from "@solid/components/errors/ErrorComp/ErrorComp";
 import Loading from "@solid/components/loaders/Loading/Loading";
 import "@justinribeiro/lite-youtube";
+import LiteYoutube from "@solid/components/shared/LiteYoutube/LiteYoutube";
 
 export default function AnimeById() {
   const anime_id = get_anime_id();
@@ -13,7 +14,7 @@ export default function AnimeById() {
     queryFn: ({ signal }) => get_anime_by_id_full_fetch({ signal, id: anime_id }),
   }));
 
-  const youtube_id = () => query.data?.data.trailer.youtube_id;
+  const youtube_id = () => query.data?.data.trailer.youtube_id || "mqDg5Oi8S_E";
 
   return (
     <div class={css.anime_by_id}>
@@ -22,18 +23,9 @@ export default function AnimeById() {
 
       {query.isSuccess && (
         <>
-          <span>{youtube_id()}</span>
-          <lite-youtube class={css.lite} videoid={"1yXa8MAmocQ"}></lite-youtube>
+          <LiteYoutube video_id={youtube_id()} class={css.lite} />
         </>
       )}
     </div>
   );
-}
-
-declare module "solid-js" {
-  namespace JSX {
-    interface IntrinsicElements {
-      "lite-youtube": any;
-    }
-  }
 }
