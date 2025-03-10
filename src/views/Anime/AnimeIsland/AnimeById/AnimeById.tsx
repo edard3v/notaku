@@ -50,7 +50,7 @@ export default function AnimeById() {
 
             <div class={css.streaming}>
               {streaming()?.map((item) => (
-                <a href={item.url} target="_blank">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">
                   {item.name}
                 </a>
               ))}
