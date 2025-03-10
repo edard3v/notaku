@@ -23,6 +23,10 @@ export default function AnimeById() {
   const streaming = () => anime()?.streaming;
   const year = () => anime()?.year;
   const img = () => anime()?.images.webp.large_image_url;
+  const genres = () =>
+    anime()
+      ?.genres.map((item) => item.name)
+      .join(", ");
 
   return (
     <div class={css.anime_by_id}>
@@ -32,18 +36,25 @@ export default function AnimeById() {
       {query.isSuccess && (
         <>
           <LiteYoutube video_id={video_id()} class={css.lite} />
-          <h1>{title()}</h1>
-          <p>{synopsis()}</p>
-          <img src={img()} alt={title()} />
-          <span>{score()}</span>
-          <span>{scored_by()}</span>
-          <span>{year()}</span>
-          <div>
-            {streaming()?.map((item) => (
-              <a href={item.url} target="_blank">
-                {item.name}
-              </a>
-            ))}
+          <div class={css.txts}>
+            <img src={img()} alt={title()} />
+            <h1>{title()}</h1>
+            <div>{genres()}</div>
+            <p>{synopsis()}</p>
+
+            <div class={css.wrapper_1}>
+              <div>🗳️ {Intl.NumberFormat("es-ES").format(scored_by() ?? 0)}</div>
+              <div>⭐️ {score()}</div>
+              <span>🗓️ {year()}</span>
+            </div>
+
+            <div class={css.streaming}>
+              {streaming()?.map((item) => (
+                <a href={item.url} target="_blank">
+                  {item.name}
+                </a>
+              ))}
+            </div>
           </div>
         </>
       )}
