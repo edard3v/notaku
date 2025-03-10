@@ -3,10 +3,11 @@ import { createEffect } from "solid-js";
 import "@justinribeiro/lite-youtube";
 import { cls } from "@utils/cls";
 import type { JSX } from "solid-js";
+import Play from "@solid/components/icons/Play";
 
 export default function LiteYoutube(props: Props) {
   let lite_youtube_ref: HTMLElement | undefined;
-  let shadow_ref: HTMLDivElement | undefined;
+  let shadow_ref: SVGElement | undefined;
 
   createEffect(() => {
     if (lite_youtube_ref && props.video_id) {
@@ -24,7 +25,7 @@ export default function LiteYoutube(props: Props) {
 
   return (
     <div class={cls([css.lite, props.class])}>
-      <div ref={shadow_ref} class={css.shadow}></div>
+      <Play ref={(el) => (shadow_ref = el)} class={css.shadow} />
       <lite-youtube ref={lite_youtube_ref}></lite-youtube>
     </div>
   );

@@ -1,5 +1,5 @@
 import css from "./Btn.module.css";
-import Cross from "@solid/icons/Cross";
+import Cross from "@solid/components/icons/Cross";
 import { cls } from "@utils/cls";
 import type { JSX } from "solid-js";
 import { splitProps } from "solid-js";
