@@ -14,9 +14,15 @@ export default function AnimeById() {
     queryFn: ({ signal }) => get_anime_by_id_full_fetch({ signal, id: anime_id }),
   }));
 
-  const youtube_id = () => query.data?.data.trailer.youtube_id || "mqDg5Oi8S_E";
-  const title = () => query.data?.data.title;
-  const synopsis = () => query.data?.data.synopsis;
+  const anime = () => query.data?.data;
+  const video_id = () => anime()?.trailer.youtube_id || "mqDg5Oi8S_E";
+  const title = () => anime()?.title;
+  const synopsis = () => anime()?.synopsis;
+  const score = () => anime()?.score;
+  const scored_by = () => anime()?.scored_by;
+  const streaming = () => anime()?.streaming;
+  const year = () => anime()?.year;
+  const img = () => anime()?.images.webp.large_image_url;
 
   return (
     <div class={css.anime_by_id}>
@@ -26,8 +32,19 @@ export default function AnimeById() {
       {query.isSuccess && (
         <>
           <h1>{title()}</h1>
-          <LiteYoutube video_id={youtube_id()} class={css.lite} />
+          <LiteYoutube video_id={video_id()} class={css.lite} />
           <p>{synopsis()}</p>
+          <img src={img()} alt={title()} />
+          <span>{score()}</span>
+          <span>{scored_by()}</span>
+          <span>{year()}</span>
+          <div>
+            {streaming()?.map((item) => (
+              <a href={item.url} target="_blank">
+                {item.name}
+              </a>
+            ))}
+          </div>
         </>
       )}
     </div>
