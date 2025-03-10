@@ -48,8 +48,8 @@ export default function AnimeById() {
               <div>
                 <div>🗳️ {Intl.NumberFormat("es-ES").format(scored_by() ?? 0)}</div>
                 <div>⭐️ {score()?.toFixed(1)}</div>
-                <div>🗓️ {year()}</div>
                 <div>♥️ {Intl.NumberFormat("es-ES").format(favorites() ?? 0)}</div>
+                <div>🗓️ {year()}</div>
               </div>
 
               <div class={css.streaming}>
