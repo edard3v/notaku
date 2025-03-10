@@ -36,26 +36,29 @@ export default function AnimeById() {
       {query.isSuccess && (
         <>
           <LiteYoutube video_id={video_id()} class={css.lite} />
-          <div class={css.txts}>
+          <section class={css.txts}>
             <img src={img()} alt={title()} />
-            <h1>{title()}</h1>
-            <div>{genres()}</div>
-            <p>{synopsis()}</p>
 
             <div class={css.wrapper_1}>
-              <div>🗳️ {Intl.NumberFormat("es-ES").format(scored_by() ?? 0)}</div>
-              <div>⭐️ {score()}</div>
-              <span>🗓️ {year()}</span>
-            </div>
+              <h1>{title()}</h1>
+              <div>{genres()}</div>
+              <p>{synopsis()}</p>
 
-            <div class={css.streaming}>
-              {streaming()?.map((item) => (
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  {item.name}
-                </a>
-              ))}
+              <div>
+                <div>🗳️ {Intl.NumberFormat("es-ES").format(scored_by() ?? 0)}</div>
+                <div>⭐️ {score()}</div>
+                <span>🗓️ {year()}</span>
+              </div>
+
+              <div class={css.streaming}>
+                {streaming()?.map((item) => (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          </section>
         </>
       )}
     </div>

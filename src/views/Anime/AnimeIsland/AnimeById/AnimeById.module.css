@@ -10,33 +10,44 @@
 
   .txts {
     position: relative;
+    padding-bottom: var(--xl);
+
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto auto auto auto;
     gap: var(--lg);
-    padding-bottom: var(--xl);
+
+    @media (max-width: 1024px) {
+      grid-template-columns: initial;
+
+      img {
+        justify-self: center;
+      }
+    }
 
     img {
       grid-column: span 1;
-      grid-row: 1 / -1;
     }
 
-    h1 {
-      position: relative;
-      grid-column: 2 / -1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    P {
-      grid-column: 2 / -1;
-    }
-
-    .streaming {
-      display: flex;
-      flex-wrap: wrap;
+    .wrapper_1 {
+      display: grid;
       gap: var(--lg);
+      grid-template-rows: 1fr;
+
+      h1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      P {
+      }
+
+      .streaming {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--lg);
+      }
     }
   }
 }
