@@ -22,6 +22,7 @@ export default function AnimeById() {
   const scored_by = () => anime()?.scored_by;
   const streaming = () => anime()?.streaming;
   const year = () => anime()?.year;
+  const favorites = () => anime()?.favorites;
   const img = () => anime()?.images.webp.large_image_url;
   const genres = () =>
     anime()
@@ -46,8 +47,9 @@ export default function AnimeById() {
 
               <div>
                 <div>🗳️ {Intl.NumberFormat("es-ES").format(scored_by() ?? 0)}</div>
-                <div>⭐️ {score()}</div>
-                <span>🗓️ {year()}</span>
+                <div>⭐️ {score()?.toFixed(1)}</div>
+                <div>🗓️ {year()}</div>
+                <div>♥️ {Intl.NumberFormat("es-ES").format(favorites() ?? 0)}</div>
               </div>
 
               <div class={css.streaming}>
