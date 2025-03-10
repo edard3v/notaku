@@ -37,7 +37,7 @@ export default function AnimeById() {
       {query.isSuccess && (
         <>
           <LiteYoutube video_id={video_id()} class={css.lite} />
-          <section class={css.txts}>
+          <section class={css.info}>
             <img src={img()} alt={title()} />
 
             <div class={css.wrapper_1}>
