@@ -40,9 +40,6 @@
         align-items: center;
       }
 
-      P {
-      }
-
       .streaming {
         display: flex;
         flex-wrap: wrap;
