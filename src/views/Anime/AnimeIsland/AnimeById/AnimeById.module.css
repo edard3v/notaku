@@ -8,6 +8,6 @@
   }
 
   .lite {
-    max-width: 720px;
+    max-height: calc(100dvh - var(--h_header));
   }
 }

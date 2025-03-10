@@ -31,8 +31,8 @@ export default function AnimeById() {
 
       {query.isSuccess && (
         <>
-          <h1>{title()}</h1>
           <LiteYoutube video_id={video_id()} class={css.lite} />
+          <h1>{title()}</h1>
           <p>{synopsis()}</p>
           <img src={img()} alt={title()} />
           <span>{score()}</span>
