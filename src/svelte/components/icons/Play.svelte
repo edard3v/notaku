@@ -1,17 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from "svelte/elements";
 
-  let { class: cls, ...rest }: HTMLAttributes<SVGElement> = $props();
+  let props: HTMLAttributes<SVGElement> = $props();
 </script>
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="48"
-  height="48"
-  viewBox="0 0 48 48"
-  {...rest}
-  class={cls}
->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" {...props}>
   <g fill="none" stroke-linejoin="round">
     <path
       fill="#2f88ff"

@@ -3,7 +3,6 @@
   import css from "./LiteYoutube.module.css";
   import "@justinribeiro/lite-youtube";
   import type { HTMLAttributes } from "svelte/elements";
-  import { onMount, onDestroy } from "svelte";
 
   type Props = HTMLAttributes<HTMLDivElement> & {
     videoid: string;
@@ -15,15 +14,15 @@
 
   const handle_lite = () => {
     lite.style.opacity = "1";
-    play.style.backgroundColor = "transparent";
+
+    if (play.backgroundColor) {
+      play.style.backgroundColor = "transparent";
+    }
   };
-
-  onMount(() => lite.addEventListener("liteYoutubeIframeLoaded", handle_lite));
-
-  onDestroy(() => lite.addEventListener("liteYoutubeIframeLoaded", handle_lite));
 </script>
 
 <div class={[css.lite, cls]} {...rest}>
   <Play bind:this={play} class={css.shadow} />
-  <lite-youtube bind:this={lite} class={css.lite} {videoid}></lite-youtube>
+  <lite-youtube bind:this={lite} class={css.lite} {videoid} onliteYoutubeIframeLoaded={handle_lite}
+  ></lite-youtube>
 </div>

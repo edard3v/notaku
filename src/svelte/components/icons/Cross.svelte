@@ -1,17 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from "svelte/elements";
 
-  const { class: cls, ...rest }: HTMLAttributes<SVGElement> = $props();
+  const props: HTMLAttributes<SVGElement> = $props();
 </script>
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="512"
-  height="512"
-  viewBox="0 0 512 512"
-  {...rest}
-  class={cls}
->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" {...props}>
   <path
     fill="currentColor"
     fill-rule="evenodd"
