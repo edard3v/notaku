@@ -1,6 +1,5 @@
 <script lang="ts">
   import css from "./TopAnime.module.css";
-  import { onMount, onDestroy } from "svelte";
   import { createQuery } from "@tanstack/svelte-query";
   import KeenSlider, { type KeenSliderInstance } from "keen-slider";
   import { get_top_anime_fetch } from "./get_top_anime_fetch/get_top_anime_fetch";
@@ -14,14 +13,16 @@
     queryFn: get_top_anime_fetch,
   });
 
-  onMount(() => {
-    slider = new KeenSlider(container, {
-      loop: false,
-      slides: { perView: "auto", spacing: 32 },
-    });
-  });
+  $effect(() => {
+    if ($query.isSuccess) {
+      slider = new KeenSlider(container, {
+        loop: false,
+        slides: { perView: "auto", spacing: 32 },
+      });
+    }
 
-  onDestroy(() => slider.destroy());
+    return () => slider?.destroy();
+  });
 </script>
 
 <div bind:this={container} class={["keen-slider", css.top_anime]}>
