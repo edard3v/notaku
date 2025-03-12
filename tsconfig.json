@@ -11,7 +11,9 @@
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
       "@views/*": ["./src/views/*"],
-      "@router/*": ["./src/router/*"]
+      "@router/*": ["./src/router/*"],
+      "@svelte/*": ["./src/svelte/*"],
+      "@jikan/*": ["./src/jikan/*"]
     }
   }
 }

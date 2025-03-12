@@ -14,7 +14,7 @@ import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland.svelte";
     <Banner1 />
     <div class={css.top_anime}>
       <h2>Top anime</h2>
-      <TopAnimeIsland />
+      <TopAnimeIsland client:only="svelte" />
     </div>
     <Banner2 />
   </main>

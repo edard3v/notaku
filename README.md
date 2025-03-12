@@ -5,3 +5,9 @@
 ```bash
 bun update --latest
 ```
+
+- TanStackQuery
+
+```
+bun i -E @tanstack/svelte-query-devtools @tanstack/svelte-query @tanstack/query-sync-storage-persister @tanstack/svelte-query-persist-client
+```

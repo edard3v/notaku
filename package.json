@@ -9,12 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "7.0.6",
-    "@fontsource-variable/jost": "5.2.5",
     "astro": "5.4.3",
-    "astro-icon": "1.1.5",
-    "keen-slider": "6.8.6",
     "svelte": "5.23.0",
+    "@astrojs/svelte": "7.0.6",
+    "astro-icon": "1.1.5",
+    "@fontsource-variable/jost": "5.2.5",
+    "@tanstack/svelte-query-devtools": "5.67.3",
+    "@tanstack/svelte-query": "5.67.3",
+    "@tanstack/query-sync-storage-persister": "5.67.3",
+    "@tanstack/svelte-query-persist-client": "5.67.3",
+    "keen-slider": "6.8.6",
     "typescript": "5.8.2"
   }
 }
