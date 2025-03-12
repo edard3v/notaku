@@ -2,10 +2,11 @@
 import css from "./Anime.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { ROUTER } from "@router/router";
+import AnimeIsland from "./AnimeIsland/AnimeIsland.svelte";
 ---
 
 <Layout title={ROUTER.anime.display}>
   <main class={css.anime}>
-    <h1>Anime</h1>
+    <AnimeIsland client:only="svelte" />
   </main>
 </Layout>
