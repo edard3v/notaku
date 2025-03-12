@@ -1,0 +1,56 @@
+.ks {
+  width: 100%;
+  height: calc(100vh - var(--h_header));
+
+  .slide {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .synopsis {
+      position: absolute;
+      top: 50%;
+      left: var(--xl);
+      transform: translateY(-50%);
+      display: grid;
+      gap: var(--lg);
+      color: var(--white);
+
+      .title {
+        font-size: 5rem;
+      }
+
+      p {
+        max-width: 65ch;
+      }
+
+      a {
+        button {
+          justify-self: start;
+        }
+      }
+    }
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    color: var(--white);
+    background-color: transparent;
+    line-height: 1rem;
+    font-size: 2rem;
+  }
+
+  .prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .next {
+    transform: translateY(-50%);
+    right: 0;
+  }
+}

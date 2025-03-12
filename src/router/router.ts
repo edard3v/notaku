@@ -8,4 +8,9 @@ export const ROUTER = {
     href: "/contacto/",
     display: "Contacto",
   },
+
+  anime: {
+    href: "/anime",
+    display: "Anime",
+  },
 };
