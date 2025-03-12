@@ -14,22 +14,14 @@
     queryFn: get_top_anime_fetch,
   });
 
-  const init_slider = () => {
-    if (container) {
-      slider = new KeenSlider(container, {
-        loop: false,
-        slides: { perView: "auto", spacing: 32 },
-      });
-    }
-  };
-
   onMount(() => {
-    init_slider();
+    slider = new KeenSlider(container, {
+      loop: false,
+      slides: { perView: "auto", spacing: 32 },
+    });
   });
 
-  onDestroy(() => {
-    slider?.destroy();
-  });
+  onDestroy(() => slider.destroy());
 </script>
 
 <div bind:this={container} class={["keen-slider", css.top_anime]}>
