@@ -1,0 +1,56 @@
+---
+import "@styles/index.css";
+import { ClientRouter } from "astro:transitions";
+import Header from "@components/shared/Header/Header.astro";
+import Footer from "@components/shared/Footer/Footer.astro";
+import Seo from "./Seo.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string[];
+  img?: string;
+}
+
+const { title, ...rest } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <ClientRouter />
+
+    <Seo {...rest} title={title} />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style>
+  :root {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg_main);
+    color: var(--paras);
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    main {
+      max-width: 1920px;
+      padding: var(--lg);
+    }
+  }
+</style>
