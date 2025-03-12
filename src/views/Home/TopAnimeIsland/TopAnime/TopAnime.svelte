@@ -4,6 +4,8 @@
   import KeenSlider, { type KeenSliderInstance } from "keen-slider";
   import { get_top_anime_fetch } from "./get_top_anime_fetch/get_top_anime_fetch";
   import { ROUTER } from "@router/router";
+  import Loading from "@svelte/components/loaders/Loading/Loading.svelte";
+  import ErrorComp from "@svelte/components/errors/ErrorComp/ErrorComp.svelte";
 
   let container: HTMLDivElement;
   let slider: KeenSliderInstance;
@@ -27,9 +29,9 @@
 
 <div bind:this={container} class={["keen-slider", css.top_anime]}>
   {#if $query.isError}
-    <p>Error</p>
+    <ErrorComp />
   {:else if $query.isLoading}
-    <p>Loading...</p>
+    <Loading />
   {:else if $query.isSuccess}
     {#each $query.data.data as item}
       <div class={["keen-slider__slide", css.slide]}>
