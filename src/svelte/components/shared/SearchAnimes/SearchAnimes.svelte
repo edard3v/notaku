@@ -10,6 +10,8 @@
 </script>
 
 <div class={[css.search, !is_visible && "hidden"]}>
-  <Cross onclick={search_animes_store_toggle_is_visible} />
-  <input type="text" placeholder="Buscar" />
+  <div class={css.wrapper}>
+    <Cross onclick={search_animes_store_toggle_is_visible} />
+    <input type="text" placeholder="Buscar" />
+  </div>
 </div>
