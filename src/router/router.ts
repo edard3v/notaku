@@ -4,9 +4,9 @@ export const ROUTER = {
     display: "Inicio",
   },
 
-  contact: {
-    href: "/contacto/",
-    display: "Contacto",
+  show_animes: {
+    href: "/ver_animes/",
+    display: "Ver animes",
   },
 
   anime: {
