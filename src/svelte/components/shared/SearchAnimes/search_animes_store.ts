@@ -1,15 +1,5 @@
 import { atom } from "nanostores";
 
-class SearchAnimesStore {
-  #is_visible = atom(false);
+export const search_animes_store = atom(false);
 
-  toggle_visible() {
-    this.#is_visible.set(!this.#is_visible.get());
-  }
-
-  public get is_visible() {
-    return this.#is_visible.get();
-  }
-}
-
-export const search_animes_store = new SearchAnimesStore();
+export const search_animes_store_toggle = () => search_animes_store.set(!search_animes_store.get());

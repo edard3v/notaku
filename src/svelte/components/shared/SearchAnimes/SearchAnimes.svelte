@@ -2,9 +2,9 @@
   import { search_animes_store } from "./search_animes_store";
   import css from "./SearchAnimes.module.css";
 
-  let is_visible = $state(search_animes_store.is_visible);
+  const search_anime = $derived($search_animes_store);
 </script>
 
-<div class={[css.search, !is_visible && "hidden"]}>
+<div class={[css.search, !search_anime && "hidden"]}>
   <input type="text" placeholder="Buscar" />
 </div>
