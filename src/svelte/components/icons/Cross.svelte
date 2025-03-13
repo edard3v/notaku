@@ -4,7 +4,7 @@
   const props: HTMLAttributes<SVGElement> = $props();
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" {...props}>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 512 512" {...props}>
   <path
     fill="currentColor"
     fill-rule="evenodd"
