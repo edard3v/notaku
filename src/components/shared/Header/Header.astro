@@ -11,12 +11,12 @@ import { ROUTER } from "@router/router";
 </header>
 
 <script>
-  import { search_animes_store_toggle } from "@svelte/components/shared/SearchAnimes/search_animes_store";
+  import { search_animes_store_toggle_is_visible } from "@svelte/components/shared/SearchAnimes/search_animes_store";
   import { Dom } from "@utils/dom/dom";
 
   document.addEventListener("astro:page-load", () => {
     const lupe = Dom.select("header_search");
-    lupe?.addEventListener("click", search_animes_store_toggle);
+    lupe?.addEventListener("click", search_animes_store_toggle_is_visible);
   });
 </script>
 
