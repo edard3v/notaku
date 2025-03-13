@@ -6,7 +6,7 @@
   overflow: hidden;
 
   .lite {
-    max-height: calc(100dvh - var(--h_header));
+    max-height: calc(70dvh - var(--h_header));
   }
 
   .info {
