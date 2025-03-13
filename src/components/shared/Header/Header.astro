@@ -6,9 +6,21 @@ import { ROUTER } from "@router/router";
 <header>
   <nav>
     <Link href={ROUTER.home.href}>{ROUTER.home.display}</Link>
-    <Link href={"#"}>🔍️</Link>
+    <button id="header_search">🔍️</button>
   </nav>
 </header>
+
+<script>
+  import { search_animes_store } from "@svelte/components/shared/SearchAnimes/search_animes_store";
+  import { Dom } from "@utils/dom/dom";
+
+  document.addEventListener("astro:page-load", () => {
+    const lupe = Dom.select("header_search");
+    lupe?.addEventListener("click", () => {
+      search_animes_store.toggle_visible();
+    });
+  });
+</script>
 
 <style>
   header {
@@ -24,7 +36,7 @@ import { ROUTER } from "@router/router";
       justify-content: center;
       gap: var(--xl);
 
-      @media (min-width: 320px) and (max-width: 767px) {
+      @media (max-width: 1024px) {
         gap: var(--lg);
       }
 

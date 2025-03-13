@@ -19,6 +19,7 @@
     "astro": "5.4.3",
     "astro-icon": "1.1.5",
     "keen-slider": "6.8.6",
+    "nanostores": "0.11.4",
     "svelte": "5.23.0",
     "typescript": "5.8.2"
   }
