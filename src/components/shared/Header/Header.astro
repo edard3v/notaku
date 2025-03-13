@@ -16,7 +16,9 @@ import { ROUTER } from "@router/router";
 
   document.addEventListener("astro:page-load", () => {
     const lupe = Dom.select("header_search");
-    lupe?.addEventListener("click", search_animes_store_toggle_is_visible);
+    lupe?.addEventListener("click", (e) => {
+      search_animes_store_toggle_is_visible();
+    });
   });
 </script>
 
