@@ -3,15 +3,16 @@
   import css from "./Search.module.css";
   import { onMount } from "svelte";
   import Loading from "@svelte/components/icons/Loading.svelte";
+  import Success from "@svelte/components/icons/Success.svelte";
 
   type Props = HTMLInputAttributes & {
-    err?: string;
+    is_err?: string;
     is_loading?: boolean;
     is_success?: boolean;
     on_search?: (txt: string) => void;
   };
 
-  let { err, on_search, is_loading, class: cls, ...rest }: Props = $props();
+  let { is_err: err, on_search, is_loading, is_success, class: cls, ...rest }: Props = $props();
   let input_ref: HTMLInputElement;
 
   onMount(() => {
@@ -44,6 +45,8 @@
   />
   {#if is_loading}
     <Loading class={css.loading} />
+  {:else if is_success}
+    <Success class={css.success} />
   {:else}
     <button class={css.lupe} onclick={handle_click}>🔍️</button>
   {/if}

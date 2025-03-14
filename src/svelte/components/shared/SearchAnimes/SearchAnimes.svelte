@@ -14,7 +14,7 @@
   <div class={[css.search]}>
     <div class={css.wrapper}>
       <Cross class={css.cross} onclick={search_animes_store_toggle_is_visible} />
-      <Search placeholder="Buscar" is_loading />
+      <Search placeholder="Buscar" />
     </div>
   </div>
 {/if}

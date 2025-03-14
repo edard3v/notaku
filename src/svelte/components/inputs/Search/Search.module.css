@@ -10,13 +10,15 @@
   }
 
   .lupe,
-  .loading {
+  .loading,
+  .success {
     position: absolute;
     top: 50%;
     right: 0;
   }
 
-  .loading {
+  .loading,
+  .success {
     transform: translate(-25%, -50%);
     width: 20px;
     height: 20px;
