@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Search from "@svelte/components/inputs/Search/Search.svelte";
   import css from "./SearchAnimes.module.css";
   import {
     search_animes_store,
@@ -9,9 +10,11 @@
   const is_visible = $derived($search_animes_store.is_visible);
 </script>
 
-<div class={[css.search, !is_visible && "hidden"]}>
-  <div class={css.wrapper}>
-    <Cross onclick={search_animes_store_toggle_is_visible} />
-    <input type="text" placeholder="Buscar" />
+{#if is_visible}
+  <div class={[css.search]}>
+    <div class={css.wrapper}>
+      <Cross onclick={search_animes_store_toggle_is_visible} />
+      <Search placeholder="Buscar" />
+    </div>
   </div>
-</div>
+{/if}

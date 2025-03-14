@@ -1,0 +1,23 @@
+.search {
+  position: relative;
+
+  input {
+    padding-right: 2rem;
+  }
+
+  .input_err {
+    outline: var(--err_outline);
+  }
+
+  .lupe {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
