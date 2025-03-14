@@ -13,8 +13,8 @@
 {#if is_visible}
   <div class={[css.search]}>
     <div class={css.wrapper}>
-      <Cross onclick={search_animes_store_toggle_is_visible} />
-      <Search placeholder="Buscar" />
+      <Cross class={css.cross} onclick={search_animes_store_toggle_is_visible} />
+      <Search placeholder="Buscar" is_loading />
     </div>
   </div>
 {/if}

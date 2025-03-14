@@ -2,13 +2,16 @@
   import type { HTMLInputAttributes } from "svelte/elements";
   import css from "./Search.module.css";
   import { onMount } from "svelte";
+  import Loading from "@svelte/components/icons/Loading.svelte";
 
   type Props = HTMLInputAttributes & {
     err?: string;
+    is_loading?: boolean;
+    is_success?: boolean;
     on_search?: (txt: string) => void;
   };
 
-  let { err, on_search, class: cls, ...rest }: Props = $props();
+  let { err, on_search, is_loading, class: cls, ...rest }: Props = $props();
   let input_ref: HTMLInputElement;
 
   onMount(() => {
@@ -39,5 +42,9 @@
     title={err}
     onkeydown={handle_enter}
   />
-  <button class={css.lupe} onclick={handle_click}>🔍</button>
+  {#if is_loading}
+    <Loading class={css.loading} />
+  {:else}
+    <button class={css.lupe} onclick={handle_click}>🔍️</button>
+  {/if}
 </label>

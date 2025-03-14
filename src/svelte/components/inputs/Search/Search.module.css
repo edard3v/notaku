@@ -9,15 +9,25 @@
     outline: var(--err_outline);
   }
 
-  .lupe {
+  .lupe,
+  .loading {
     position: absolute;
-    height: 100%;
-    top: 0;
+    top: 50%;
     right: 0;
+  }
+
+  .loading {
+    transform: translate(-25%, -50%);
+    width: 20px;
+    height: 20px;
+  }
+
+  .lupe {
+    transform: translateY(-50%);
     background-color: transparent;
 
     &:hover {
-      transform: scale(1.2);
+      transform: translateY(-50%) scale(1.5);
     }
   }
 }

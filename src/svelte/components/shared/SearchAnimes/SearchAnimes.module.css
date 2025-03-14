@@ -10,7 +10,7 @@
     padding: var(--xl);
     position: relative;
 
-    svg {
+    .cross {
       width: 28px;
       height: 28px;
       cursor: pointer;
