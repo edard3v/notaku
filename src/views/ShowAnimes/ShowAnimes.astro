@@ -1,10 +1,13 @@
 ---
+import css from "./ShowAnimes.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { ROUTER } from "@router/router";
+import FormIsland from "./FormIsland/FormIsland.svelte";
 ---
 
 <Layout title={ROUTER.show_animes.display}>
-  <main>
+  <main class={css.show}>
     <h1>Ver Animes</h1>
+    <FormIsland client:only="svelte" />
   </main>
 </Layout>
