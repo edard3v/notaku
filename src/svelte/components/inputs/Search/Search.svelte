@@ -12,7 +12,15 @@
     on_search?: (txt: string) => void;
   };
 
-  let { is_err: err, on_search, is_loading, is_success, class: cls, ...rest }: Props = $props();
+  let {
+    is_err: err,
+    on_search,
+    is_loading,
+    is_success,
+    class: cls,
+    placeholder = "Buscar",
+    ...rest
+  }: Props = $props();
   let input_ref: HTMLInputElement;
 
   onMount(() => {
@@ -41,6 +49,7 @@
     type="text"
     class={[err && css.input_err]}
     title={err}
+    {placeholder}
     onkeydown={handle_enter}
   />
   {#if is_loading}
