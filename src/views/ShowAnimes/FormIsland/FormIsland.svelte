@@ -2,32 +2,29 @@
   import Search from "@svelte/components/inputs/Search/Search.svelte";
   import Btn from "@svelte/components/buttons/Btn/Btn.svelte";
   import { z } from "astro/zod";
-  import { use_form } from "@svelte/utils/use_form.svelte";
+  import { UseForm } from "@svelte/utils/UseForm.svelte";
 
   const schema = z.object({
     search: z.string().min(1),
     password: z.string().min(1),
   });
 
-  let form_island = $state(use_form());
+  let form_island = new UseForm();
 </script>
 
 <form
   onsubmit={(e) => {
     e.preventDefault();
-    form_island = use_form({ form: e.target!, schema });
+    form_island.validator({ form: e.target!, schema });
 
-    if (form_island.errors) return;
+    if (!form_island.is_valid) return;
 
     console.log("fetch back");
   }}
 >
   <Search name="search" err={form_island?.errors?.search} />
   <input type="password" name="password" placeholder="Contraseña" />
-  <select>
-    <option value="1">1</option>
-    <option value="2">2</option>
-  </select>
+
   <Btn>Enviar</Btn>
 </form>
 
