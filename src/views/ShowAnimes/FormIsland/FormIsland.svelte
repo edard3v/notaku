@@ -5,25 +5,25 @@
   import { UseForm } from "@svelte/utils/UseForm.svelte";
   import { onMount } from "svelte";
 
+  let form_island: UseForm;
+
   let form_ref: HTMLFormElement;
+
   const schema = z.object({
     search: z.string().min(1),
     password: z.string().min(1),
   });
 
-  let form_island: UseForm;
+  const handle = (data: any) => {
+    console.log(data);
+  };
 
   onMount(() => {
-    form_island = new UseForm(form_ref, schema);
+    form_island = new UseForm(form_ref, schema, handle);
   });
 </script>
 
-<form
-  bind:this={form_ref}
-  onsubmit={() => {
-    console.log(form_island.data);
-  }}
->
+<form bind:this={form_ref}>
   <Search name="search" err={form_island?.errors?.search} />
   <input type="password" name="password" placeholder="Contraseña" />
 
