@@ -6,14 +6,14 @@
   import Success from "@svelte/components/icons/Success.svelte";
 
   type Props = HTMLInputAttributes & {
-    is_err?: string;
+    err?: string;
     is_loading?: boolean;
     is_success?: boolean;
     on_search?: (txt: string) => void;
   };
 
   let {
-    is_err: err,
+    err,
     on_search,
     is_loading,
     is_success,
