@@ -13,13 +13,16 @@
 </script>
 
 <form
+  onchange={(e) => {
+    form_island.validator({ form: e.currentTarget, schema });
+  }}
   onsubmit={(e) => {
     e.preventDefault();
-    form_island.validator({ form: e.target!, schema });
+    form_island.validator({ form: e.currentTarget, schema });
 
     if (!form_island.is_valid) return;
 
-    console.log("fetch back");
+    console.log(form_island.data);
   }}
 >
   <Search name="search" err={form_island?.errors?.search} />
@@ -33,7 +36,6 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-    border: var(--br);
     padding: var(--xl);
     display: grid;
     gap: var(--lg);
