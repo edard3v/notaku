@@ -1,30 +1,28 @@
 <script lang="ts">
   import Search from "@svelte/components/inputs/Search/Search.svelte";
   import Btn from "@svelte/components/buttons/Btn/Btn.svelte";
-  import { form_validator, type FormState } from "@svelte/utils/form_validator.svelte";
   import { z } from "astro/zod";
+  import { use_form } from "@svelte/utils/use_form.svelte";
 
   const schema = z.object({
     search: z.string().min(1),
-    password: z.string().url(),
+    password: z.string().min(1),
   });
 
-  let rune: FormState = $state({ data: undefined, errors: undefined });
+  let form_island = $state(use_form());
 </script>
 
 <form
   onsubmit={(e) => {
     e.preventDefault();
-    rune = form_validator({ form: e.target!, schema });
+    form_island = use_form({ form: e.target!, schema });
 
-    if (rune.errors) return;
+    if (form_island.errors) return;
 
-    // here init fetch backend
-
-    console.log("fetch----");
+    console.log("fetch back");
   }}
 >
-  <Search name="search" err={rune?.errors?.search} />
+  <Search name="search" err={form_island?.errors?.search} />
   <input type="password" name="password" placeholder="Contraseña" />
   <select>
     <option value="1">1</option>

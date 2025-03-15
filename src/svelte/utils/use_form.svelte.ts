@@ -1,14 +1,15 @@
 import type { ZodSchema } from "astro/zod";
 
-export const form_validator = ({ form, schema }: Params) => {
+export const use_form = (params?: Params) => {
+  const form_state: FormState = { data: undefined, errors: undefined };
+  if (!params) return form_state;
+
+  const { form, schema } = params;
+
   const form_data = new FormData(form as HTMLFormElement);
   const form_entries = Object.fromEntries(form_data);
 
-  console.log(form_entries);
-
   const { error, data } = schema.safeParse(form_entries);
-
-  const form_state: FormState = { data: {}, errors: {} };
 
   form_state.data = data;
   form_state.errors = error?.issues
@@ -24,7 +25,7 @@ export const form_validator = ({ form, schema }: Params) => {
 
 type Params = { form: EventTarget; schema: ZodSchema };
 
-export type FormState = {
+type FormState = {
   data: { [x: string]: string } | undefined;
   errors: { [x: string]: string } | undefined;
 };
