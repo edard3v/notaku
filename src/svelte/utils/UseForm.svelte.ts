@@ -6,24 +6,10 @@ export class UseForm {
   is_valid: boolean = false;
   form_ref: HTMLFormElement;
   schema: ZodSchema;
-  handle_submit: Function;
 
-  constructor(form_ref: HTMLFormElement, schema: ZodSchema, handle_submit: Function) {
+  constructor(form_ref: HTMLFormElement, schema: ZodSchema) {
     this.form_ref = form_ref;
     this.schema = schema;
-    this.handle_submit = handle_submit;
-
-    this.form_ref.addEventListener("change", () => {
-      this.validator();
-    });
-
-    this.form_ref.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.validator();
-      if (!this.is_valid) return;
-
-      this.handle_submit(this.data);
-    });
   }
 
   validator() {

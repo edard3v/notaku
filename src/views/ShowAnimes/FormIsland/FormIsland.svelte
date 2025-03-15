@@ -14,18 +14,20 @@
     password: z.string().min(1),
   });
 
-  type Schema = z.infer<typeof schema>;
-
-  const handle = (data: Schema) => {
-    console.log(data);
-  };
-
   onMount(() => {
-    form_island = new UseForm(form_ref, schema, handle);
+    form_island = new UseForm(form_ref, schema);
   });
 </script>
 
-<form bind:this={form_ref}>
+<form
+  bind:this={form_ref}
+  onchange={() => form_island?.validator()}
+  onsubmit={(e) => {
+    e.preventDefault();
+    form_island?.validator();
+    if (!form_island?.is_valid) return;
+  }}
+>
   <Search name="search" err={form_island?.errors?.search} />
   <input type="password" name="password" placeholder="Contraseña" />
 
