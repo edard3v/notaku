@@ -4,13 +4,22 @@ export class UseForm {
   data: Data = $state();
   errors: Errors = $state();
   is_valid: boolean = false;
+  form_ref: HTMLFormElement;
+  schema: ZodSchema;
 
-  validator(params: Params) {
-    const { form, schema } = params;
+  constructor(form_ref: HTMLFormElement, schema: ZodSchema) {
+    this.form_ref = form_ref;
+    this.schema = schema;
 
-    const form_data = new FormData(form as HTMLFormElement);
+    this.form_ref.addEventListener("change", () => {
+      this.validator();
+    });
+  }
+
+  validator() {
+    const form_data = new FormData(this.form_ref);
     const form_entries = Object.fromEntries(form_data);
-    const { error, data, success } = schema.safeParse(form_entries);
+    const { error, data, success } = this.schema.safeParse(form_entries);
 
     this.is_valid = success;
     this.data = data;
@@ -23,8 +32,6 @@ export class UseForm {
       }, {});
   }
 }
-
-type Params = { form: EventTarget; schema: ZodSchema };
 
 type Data = { [x: string]: string } | undefined;
 type Errors = Data;

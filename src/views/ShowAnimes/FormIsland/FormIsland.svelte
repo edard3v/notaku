@@ -3,22 +3,26 @@
   import Btn from "@svelte/components/buttons/Btn/Btn.svelte";
   import { z } from "astro/zod";
   import { UseForm } from "@svelte/utils/UseForm.svelte";
+  import { onMount } from "svelte";
 
+  let form_ref: HTMLFormElement;
   const schema = z.object({
     search: z.string().min(1),
     password: z.string().min(1),
   });
 
-  let form_island = new UseForm();
+  let form_island: UseForm;
+
+  onMount(() => {
+    form_island = new UseForm(form_ref, schema);
+  });
 </script>
 
 <form
-  onchange={(e) => {
-    form_island.validator({ form: e.currentTarget, schema });
-  }}
+  bind:this={form_ref}
   onsubmit={(e) => {
     e.preventDefault();
-    form_island.validator({ form: e.currentTarget, schema });
+    form_island?.validator();
 
     if (!form_island.is_valid) return;
 
