@@ -20,12 +20,7 @@
 
 <form
   bind:this={form_ref}
-  onsubmit={(e) => {
-    e.preventDefault();
-    form_island?.validator();
-
-    if (!form_island.is_valid) return;
-
+  onsubmit={() => {
     console.log(form_island.data);
   }}
 >

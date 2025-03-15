@@ -14,6 +14,11 @@ export class UseForm {
     this.form_ref.addEventListener("change", () => {
       this.validator();
     });
+
+    this.form_ref.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.validator();
+    });
   }
 
   validator() {
