@@ -6,9 +6,9 @@ export class UseForm {
   is_valid: boolean = false;
   form_ref: HTMLFormElement;
   schema: ZodSchema;
-  handle_submit: (data: any) => void;
+  handle_submit: Function;
 
-  constructor(form_ref: HTMLFormElement, schema: ZodSchema, handle_submit: (data: any) => void) {
+  constructor(form_ref: HTMLFormElement, schema: ZodSchema, handle_submit: Function) {
     this.form_ref = form_ref;
     this.schema = schema;
     this.handle_submit = handle_submit;

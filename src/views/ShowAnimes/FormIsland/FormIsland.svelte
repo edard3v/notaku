@@ -5,7 +5,7 @@
   import { UseForm } from "@svelte/utils/UseForm.svelte";
   import { onMount } from "svelte";
 
-  let form_island: UseForm;
+  let form_island = $state<UseForm>();
 
   let form_ref: HTMLFormElement;
 
@@ -14,7 +14,9 @@
     password: z.string().min(1),
   });
 
-  const handle = (data: any) => {
+  type Schema = z.infer<typeof schema>;
+
+  const handle = (data: Schema) => {
     console.log(data);
   };
 
