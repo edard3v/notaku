@@ -1,0 +1,79 @@
+---
+import Btn from "@components/buttons/Btn/Btn.astro";
+import { ANIMES } from "./animes";
+import css from "./FavoriteAnimes.module.css";
+import { Icon } from "astro-icon/components";
+import Image from "astro/components/Image.astro";
+import { ANIME } from "@views/Anime/config";
+---
+
+<div id="ks" class:list={["keen-slider", css.ks]} style="opacity: 0;">
+  {
+    ANIMES.map((item) => (
+      <div class:list={["keen-slider__slide", css.slide]}>
+        <Image
+          src={item.img}
+          alt={item.name}
+          widths={[768, 1440, item.img.width]}
+          sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${item.img.width}px`}
+          format="avif"
+        />
+
+        <div class={css.synopsis}>
+          <h2 class={css.title}>{item.name}</h2>
+          <p>{item.synopsis}</p>
+          <a href={`${ANIME.href}?id=${item.id}`}>
+            <Btn>Ver</Btn>
+          </a>
+        </div>
+      </div>
+    ))
+  }
+
+  <button id="ks_prev" class={css.prev}><Icon name={"arrow"} /></button>
+  <button id="ks_next" class={css.next}><Icon name={"arrow"} /></button>
+</div>
+
+<script>
+  import { dom } from "@utils/dom/dom";
+  import KeenSlider from "keen-slider";
+
+  const { select } = dom();
+
+  document.addEventListener("astro:page-load", () => {
+    const ks = select("ks");
+    const prev = select("ks_prev");
+    const next = select("ks_next");
+
+    if (!ks) return;
+
+    requestAnimationFrame(() => {
+      // Aquí el CSS ya debería estar aplicado en el DOM
+      ks.style.opacity = "1";
+    });
+
+    const slider = new KeenSlider(ks, {
+      loop: true,
+      slides: { perView: 1 },
+      created: (slider) => {
+        slider.slides[0].classList.add("brightness_ani");
+      },
+      slideChanged: (slider) => {
+        const i = slider.track.details.rel;
+        const slide = slider.slides[i];
+        const prev_slide = slider.slides[Math.abs(i - 1)];
+
+        slide.classList.add("brightness_ani");
+        prev_slide.classList.remove("brightness_ani");
+      },
+    });
+
+    prev?.addEventListener("click", () => {
+      slider.prev();
+    });
+
+    next?.addEventListener("click", () => {
+      slider.next();
+    });
+  });
+</script>
