@@ -1,11 +1,12 @@
 .fade_in {
-  animation: fade_in 0.3s;
+  animation: fade_in 0.5s;
 }
 
 @keyframes fade_in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
