@@ -1,13 +1,13 @@
 type Props = React.SVGProps<SVGSVGElement>;
 
-export default function Icon(props: Props) {
+export default function Cross(props: Props) {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="256"
       height="256"
       viewBox="0 0 512 512"
+      {...props}
     >
       <path
         fill="currentColor"

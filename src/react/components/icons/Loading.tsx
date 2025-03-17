@@ -1,8 +1,8 @@
 type Props = React.SVGProps<SVGSVGElement>;
 
-export default function Spinner(props: Props) {
+export default function Loading(props: Props) {
   return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" {...props}>
       <circle cx="12" cy="2" r="0" fill="currentColor">
         <animate
           attributeName="r"

@@ -2,7 +2,7 @@ type Props = React.SVGProps<SVGSVGElement>;
 
 export default function Icon(props: Props) {
   return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" {...props}>
       <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4">
         <path
           fill="green"
