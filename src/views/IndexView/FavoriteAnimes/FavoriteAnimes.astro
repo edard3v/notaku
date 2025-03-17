@@ -56,15 +56,15 @@ import { ANIME } from "@views/Anime/config";
       loop: true,
       slides: { perView: 1 },
       created: (slider) => {
-        slider.slides[0].classList.add("brightness_ani");
+        slider.slides[0].classList.add("fade_in");
       },
       slideChanged: (slider) => {
         const i = slider.track.details.rel;
         const slide = slider.slides[i];
         const prev_slide = slider.slides[Math.abs(i - 1)];
 
-        slide.classList.add("brightness_ani");
-        prev_slide.classList.remove("brightness_ani");
+        slide.classList.add("fade_in");
+        prev_slide.classList.remove("fade_in");
       },
     });
 
