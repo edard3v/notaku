@@ -1,0 +1,32 @@
+.ks {
+  width: 100%;
+  min-height: calc(100vh - var(--h_header));
+
+  .slide {
+    background: var(--bg_surf);
+    padding: var(--lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+
+    color: inherit;
+    background-color: transparent;
+    font-size: 2rem;
+  }
+
+  .prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .next {
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

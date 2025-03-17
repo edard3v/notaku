@@ -1,0 +1,13 @@
+---
+import { INDEX } from "@views/IndexView/config";
+import css from "./Header.module.css";
+import Link from "@components/links/Link/Link.astro";
+import { CONTACTO } from "@views/ContactoView/config";
+---
+
+<header class={css.header}>
+  <nav>
+    <Link href={INDEX.href}>{INDEX.display}</Link>
+    <Link href={CONTACTO.href}>{CONTACTO.display}</Link>
+  </nav>
+</header>

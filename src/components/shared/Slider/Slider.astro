@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import css from "./Slider.module.css";
+---
+
+<div id="ks" class:list={["keen-slider", css.ks]} style="opacity: 0;">
+  <div class:list={["keen-slider__slide", css.slide]}>1</div>
+  <div class:list={["keen-slider__slide", css.slide]}>2</div>
+  <div class:list={["keen-slider__slide", css.slide]}>3</div>
+
+  <button id="ks_prev" class={css.prev}><Icon name={"arrow"} /></button>
+  <button id="ks_next" class={css.next}><Icon name={"arrow"} /></button>
+</div>
+
+<script>
+  import { dom } from "@utils/dom/dom";
+  import KeenSlider from "keen-slider";
+
+  document.addEventListener("astro:page-load", () => {
+    const { select } = dom();
+    const ks = select("ks");
+
+    if (!ks) return;
+
+    requestAnimationFrame(() => {
+      // Aquí el CSS ya debería estar aplicado en el DOM
+      ks.style.opacity = "1";
+    });
+
+    const slider = new KeenSlider(ks, {
+      loop: true,
+      slides: { perView: 1 },
+      created: (_slider) => {}, // se ejecuta luego de estar montado el slider
+      slideChanged: (_slider) => {}, // se ejecuta cada que cambia diapo
+    });
+
+    const prev = select("ks_prev");
+    const next = select("ks_next");
+
+    prev?.addEventListener("click", () => {
+      slider.prev();
+    });
+
+    next?.addEventListener("click", () => {
+      slider.next();
+    });
+  });
+</script>

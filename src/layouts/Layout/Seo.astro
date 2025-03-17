@@ -1,0 +1,37 @@
+---
+import { SEO } from "./seo";
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string[];
+  img?: string;
+}
+
+const {
+  title,
+  description = SEO.description,
+  keywords = SEO.keywords,
+  img = SEO.img,
+} = Astro.props;
+
+const keywords_parsed = keywords.join(",");
+---
+
+<!-- SEO Básico -->
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords_parsed} />
+<meta name="author" content={SEO.author} />
+
+<!-- Open Graph (Para compartir en redes sociales como Facebook) -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={img} />
+<meta property="og:url" content={SEO.base_url} />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Cards (Para compartir en Twitter/X) -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={img} />

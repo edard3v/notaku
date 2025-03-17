@@ -1,0 +1,27 @@
+header {
+  border-bottom: var(--border);
+  min-height: var(--h_header);
+
+  display: grid;
+  align-items: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--xl);
+
+    @media (max-width: 1024px) {
+      gap: var(--lg);
+    }
+
+    a {
+      color: inherit;
+      text-transform: capitalize;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {}
+
+const { class: cls, href, ...rest } = Astro.props;
+const pathname = Astro.url.pathname;
+const is_active = pathname === href;
+---
+
+<a {...rest} href={href} class:list={["link", { is_active }, cls]}>
+  <slot />
+</a>
+
+<style>
+  .link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  .is_active {
+    position: relative;
+
+    &:focus::after {
+      content: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: calc(var(--sm) * -1);
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary);
+    }
+  }
+</style>
