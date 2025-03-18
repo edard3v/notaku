@@ -9,6 +9,12 @@
   .form {
     padding: var(--xl);
     position: relative;
+    display: grid;
+    gap: var(--lg);
+
+    button {
+      justify-self: end;
+    }
 
     .cross {
       width: 28px;

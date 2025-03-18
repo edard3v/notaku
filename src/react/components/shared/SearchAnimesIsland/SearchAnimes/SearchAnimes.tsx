@@ -3,6 +3,7 @@ import css from "./SearchAnimes.module.css";
 import Search from "@react/components/inputs/Search/Search";
 import { useStore } from "@nanostores/react";
 import { search_animes_store } from "./search_animes_store";
+import Btn from "@react/components/buttons/Btn/Btn";
 
 export default function SearchAnimes() {
   const { is_visible } = useStore(search_animes_store.store);
@@ -10,9 +11,15 @@ export default function SearchAnimes() {
   if (!is_visible) return null;
   return (
     <div className={css.search}>
-      <form className={css.form}>
+      <form
+        className={css.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <Cross className={css.cross} onClick={search_animes_store.toggle_visible} />
         <Search />
+        <Btn type="submit">Buscar</Btn>
       </form>
     </div>
   );

@@ -23,13 +23,4 @@
     width: 20px;
     height: 20px;
   }
-
-  .lupe {
-    transform: translateY(-50%);
-    background-color: transparent;
-
-    &:hover {
-      transform: translateY(-50%) scale(1.5);
-    }
-  }
 }
