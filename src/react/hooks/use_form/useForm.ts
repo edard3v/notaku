@@ -9,7 +9,7 @@ export const useForm = <T = Inputs>(schema: ZodSchema, options: Options<T>) => {
 
   const subscribe = () => {
     const result = validate();
-    if (!result) return;
+    if (!result || !result.inputs) return;
 
     options.success(result);
   };
