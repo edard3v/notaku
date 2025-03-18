@@ -5,6 +5,7 @@ import { get_anime_by_id_full_fetch } from "./get_anime_by_id_full_fetch/get_ani
 import ErrorComp from "@react/components/errors/ErrorComp/ErrorComp";
 import Loading from "@react/components/loaders/Loading/Loading";
 import { cls } from "@utils/cls";
+import LiteYoutube from "@react/components/shared/LiteYoutube/LiteYoutube";
 
 export default function Anime() {
   const anime_id = get_anime_id();
@@ -16,27 +17,13 @@ export default function Anime() {
 
   const anime = query.data?.data;
 
-  if (query.isError) {
-    return (
-      <div className={cls([css.anime_by_id])}>
-        <ErrorComp />
-      </div>
-    );
-  }
-
-  if (query.isLoading) {
-    return (
-      <div className={cls([css.anime_by_id])}>
-        <Loading />
-      </div>
-    );
-  }
-
+  if (query.isError) return <ErrorComp />;
+  if (query.isLoading) return <Loading />;
   if (!anime) return null;
 
   return (
     <div className={cls([css.anime_by_id])}>
-      {/* <LiteYoutube className={cls([css.lite])} videoid={anime.trailer.youtube_id} /> */}
+      <LiteYoutube className={cls([css.lite])} videoid={anime.trailer.youtube_id} />
 
       <section className={cls([css.info])}>
         <img src={anime.images.webp.large_image_url} alt={anime.title} />
