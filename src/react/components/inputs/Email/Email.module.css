@@ -1,0 +1,7 @@
+.email {
+  position: relative;
+
+  .input_err {
+    outline: var(--err_outline);
+  }
+}
