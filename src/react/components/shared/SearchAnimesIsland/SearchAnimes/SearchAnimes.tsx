@@ -15,11 +15,13 @@ export default function SearchAnimes() {
         className={css.form}
         onSubmit={(e) => {
           e.preventDefault();
+          console.log("submit");
+          console.log(e.target);
         }}
       >
         <Cross className={css.cross} onClick={search_animes_store.toggle_visible} />
         <Search />
-        <Btn type="submit">Buscar</Btn>
+        <Btn>Buscar</Btn>
       </form>
     </div>
   );

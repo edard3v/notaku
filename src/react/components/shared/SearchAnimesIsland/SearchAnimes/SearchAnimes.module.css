@@ -9,7 +9,7 @@
   .form {
     padding: var(--xl);
     position: relative;
-    display: grid;
+    display: flex;
     gap: var(--lg);
 
     button {
