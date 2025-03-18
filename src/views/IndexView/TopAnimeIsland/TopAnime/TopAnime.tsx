@@ -13,8 +13,6 @@ export default function TopAnime() {
     queryFn: get_top_anime_fetch,
   });
 
-  const top_anime = query.data?.data;
-
   return (
     <div className={css.top_anime}>
       {query.isError && <ErrorComp />}
@@ -22,7 +20,7 @@ export default function TopAnime() {
 
       {query.isSuccess && (
         <KeenSlider options={{ perView: "auto", spacing: 32 }}>
-          {top_anime?.map((item) => (
+          {query.data.data.map((item) => (
             <div key={item.mal_id} className={cls([KSS, css.slide])}>
               <a href={`${ANIME.href}?id=${item.mal_id}`}>
                 <img src={item.images.webp.large_image_url} alt={item.title} />
