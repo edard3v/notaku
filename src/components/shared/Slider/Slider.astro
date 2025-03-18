@@ -17,7 +17,7 @@ import css from "./Slider.module.css";
   import KeenSlider from "keen-slider";
 
   document.addEventListener("astro:page-load", () => {
-    const { select } = dom();
+    const { select } = dom;
     const ks = select("ks");
 
     if (!ks) return;

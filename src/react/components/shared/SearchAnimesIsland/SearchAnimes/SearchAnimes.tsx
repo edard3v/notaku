@@ -12,7 +12,7 @@ export default function SearchAnimes() {
     <div className={css.search}>
       <form className={css.form}>
         <Cross className={css.cross} onClick={search_animes_store.toggle_visible} />
-        <Search name="title" />
+        <Search />
       </form>
     </div>
   );

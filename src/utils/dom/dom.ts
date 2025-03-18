@@ -1,4 +1,4 @@
-export const dom = () => {
+const utils_dom = () => {
   return {
     select,
   };
@@ -9,3 +9,5 @@ const select = (id: string) => {
   if (!element) return null;
   return element as HTMLElement;
 };
+
+export const dom = utils_dom();
