@@ -27,7 +27,7 @@ export default function LiteYoutube(props: Props) {
     <div className={cls([css.lite, className])} {...rest}>
       <Play className={css.shadow} />
       {/* @ts-ignore */}
-      <lite-youtube ref={lite} videoid={videoid}></lite-youtube>
+      <lite-youtube ref={lite} videoid={videoid || "mqDg5Oi8S_E"}></lite-youtube>
     </div>
   );
 }
