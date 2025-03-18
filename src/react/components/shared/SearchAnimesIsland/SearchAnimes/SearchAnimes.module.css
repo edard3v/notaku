@@ -1,0 +1,22 @@
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg_surf);
+  border-radius: var(--md);
+
+  .form {
+    padding: var(--xl);
+    position: relative;
+
+    .cross {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      position: absolute;
+      top: 6px;
+      right: 6px;
+    }
+  }
+}

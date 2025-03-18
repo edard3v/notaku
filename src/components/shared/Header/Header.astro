@@ -10,3 +10,15 @@ import Link from "@components/links/Link/Link.astro";
     <button id="header_search">🔍️</button>
   </nav>
 </header>
+
+<script>
+  import { search_animes_store } from "@react/components/shared/SearchAnimesIsland/SearchAnimes/search_animes_store";
+  import { dom } from "@utils/dom/dom";
+
+  const { select } = dom();
+
+  document.addEventListener("astro:page-load", () => {
+    const lupe = select("header_search");
+    lupe?.addEventListener("click", search_animes_store.toggle_visible);
+  });
+</script>
