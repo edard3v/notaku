@@ -11,14 +11,12 @@ const store = () => {
     is_visible: false,
   });
 
-  const is_visible = () => store.get().is_visible;
-
   const set_animes = (animes: SearchAnimesFetchRes) => {
     store.setKey("animes", animes);
   };
 
   const toggle_visible = () => {
-    store.setKey("is_visible", !is_visible());
+    store.setKey("is_visible", !store.get().is_visible);
   };
 
   return {
