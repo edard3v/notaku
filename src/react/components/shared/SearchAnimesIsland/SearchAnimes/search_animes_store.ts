@@ -15,12 +15,17 @@ const store = () => {
     store.setKey("animes", animes);
   };
 
+  const set_visible = (value: boolean) => {
+    store.setKey("is_visible", value);
+  };
+
   const toggle_visible = () => {
     store.setKey("is_visible", !store.get().is_visible);
   };
 
   return {
     store,
+    set_visible,
     set_animes,
     toggle_visible,
   };

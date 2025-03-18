@@ -38,6 +38,14 @@ const { title, ...rest } = Astro.props;
   </body>
 </html>
 
+<script>
+  import { search_animes_store } from "@react/components/shared/SearchAnimesIsland/SearchAnimes/search_animes_store";
+
+  document.addEventListener("astro:before-swap", () => {
+    search_animes_store.set_visible(false);
+  });
+</script>
+
 <style>
   :root {
     scrollbar-gutter: stable;
