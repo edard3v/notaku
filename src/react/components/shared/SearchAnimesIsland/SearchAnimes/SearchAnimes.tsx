@@ -10,18 +10,30 @@ import { search_animes_schema } from "./search_animes_schema";
 export default function SearchAnimes() {
   const { is_visible } = useStore(search_animes_store.store);
 
-  const { errors, inputs, on_submit, on_change } = useForm(search_animes_schema);
-
-  console.log(errors);
-  console.log(inputs);
+  const { form, errors, subscribe } = useForm(search_animes_schema, {
+    success(inputs) {
+      // Solo entrego la data si cumple las validaciones de zod y llega tipada
+      console.log(inputs);
+      // ...fetch aquí
+    },
+  });
 
   if (!is_visible) return null;
   return (
     <div className={css.search}>
-      <form className={css.form} onSubmit={on_submit} onChange={on_change}>
+      <form
+        ref={form}
+        className={css.form}
+        // suscribes/validas en los eventos que desees
+        onChange={subscribe}
+        onSubmit={(e) => {
+          e.preventDefault();
+          subscribe();
+        }}
+      >
         <Cross className={css.cross} onClick={search_animes_store.toggle_visible} />
-        <Search name="title" />
-        <input type="text" name="other" />
+        <Search name="title" err={errors?.title} />
+
         <Btn>Buscar</Btn>
       </form>
     </div>

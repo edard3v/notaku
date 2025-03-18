@@ -1,24 +1,21 @@
 import type { ZodSchema } from "astro/zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-export const useForm = (schema: ZodSchema) => {
+export const useForm = (schema: ZodSchema, options: Options) => {
+  const form_ref = useRef<HTMLFormElement>(null);
   const [inputs, setInputs] = useState<Inputs>();
   const [errors, setErrors] = useState<Errors>();
   const [is_valid, setIs_valid] = useState(false);
 
-  const on_submit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    update(form);
+  const subscribe = () => {
+    const result = validate();
+    if (!result?.is_valid) return;
+    options.success(result.inputs);
   };
 
-  const on_change = (e: React.FormEvent<HTMLFormElement>) => {
-    const form = e.currentTarget;
-    update(form);
-  };
-
-  const update = (form: HTMLFormElement) => {
-    const form_data = new FormData(form);
+  const validate = (): Validate => {
+    if (!form_ref.current) return;
+    const form_data = new FormData(form_ref.current);
     const form_entries = Object.fromEntries(form_data);
     const { error, data, success } = schema.safeParse(form_entries);
 
@@ -33,16 +30,24 @@ export const useForm = (schema: ZodSchema) => {
         return acc;
       }, {});
     setErrors(errors);
+
+    return { inputs: data, is_valid: success };
   };
 
   return {
+    form: form_ref,
     inputs,
     errors,
     is_valid,
-    on_submit,
-    on_change,
+    subscribe,
   };
 };
 
 type Inputs = { [x: string]: string } | undefined;
 type Errors = Inputs;
+
+type Options = {
+  success: (inputs: Inputs) => void;
+};
+
+type Validate = { inputs: Inputs; is_valid: boolean } | undefined;
