@@ -23,5 +23,12 @@ header {
         color: var(--primary);
       }
     }
+
+    button {
+      background-color: transparent;
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
   }
 }
