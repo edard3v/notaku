@@ -1,0 +1,55 @@
+.anime_by_id {
+  min-height: calc(100dvh - var(--h_header));
+  position: relative;
+  display: grid;
+  gap: var(--xl);
+  overflow: hidden;
+
+  .lite {
+    max-height: calc(70dvh - var(--h_header));
+  }
+
+  .info {
+    position: relative;
+    padding-bottom: var(--xl);
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--lg);
+
+    @media (max-width: 1024px) {
+      grid-template-columns: initial;
+
+      img {
+        justify-self: center;
+        max-width: 300px;
+      }
+    }
+
+    img {
+      grid-column: span 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wrapper_1 {
+      display: grid;
+      gap: var(--lg);
+      grid-template-rows: 1fr;
+
+      h1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .streaming {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--lg);
+      }
+    }
+  }
+}

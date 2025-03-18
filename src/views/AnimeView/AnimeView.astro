@@ -1,0 +1,12 @@
+---
+import css from "./AnimeView.module.css";
+import Layout from "@layouts/Layout/Layout.astro";
+import { ANIME } from "./config";
+import AnimeIsland from "./AnimeIsland/AnimeIsland";
+---
+
+<Layout title={ANIME.display}>
+  <main class={css.anime}>
+    <AnimeIsland client:only="react" />
+  </main>
+</Layout>

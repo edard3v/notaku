@@ -3,9 +3,9 @@ import { get_top_anime_fetch } from "./get_top_anime_fetch/get_top_anime_fetch";
 import css from "./TopAnime.module.css";
 import Loading from "@react/components/loaders/Loading/Loading";
 import ErrorComp from "@react/components/errors/ErrorComp/ErrorComp";
-import KeenSlider, { KSS } from "@react/components/shared/KeenSlider/KeenSlider";
-import { ANIME } from "@views/Anime/config";
 import { cls } from "@utils/cls";
+import { ANIME } from "@views/AnimeView/config";
+import KeenSlider, { KSS } from "@react/components/shared/KeenSlider/KeenSlider";
 
 export default function TopAnime() {
   const query = useQuery({
