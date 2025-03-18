@@ -11,7 +11,7 @@ export default function SearchAnimes() {
   const { is_visible } = useStore(search_animes_store.store);
 
   const form = useForm<SearchAnimesSchema>(search_animes_schema, {
-    success(inputs) {
+    success({ inputs }) {
       console.log(inputs.title);
     },
   });

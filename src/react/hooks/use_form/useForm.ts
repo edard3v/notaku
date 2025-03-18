@@ -14,7 +14,7 @@ export const useForm = <T = Inputs>(schema: ZodSchema, options: Options<T>) => {
     options.success(result);
   };
 
-  const validate = (): T => {
+  const validate = (): { inputs: T } => {
     const form_data = new FormData(form_ref.current!);
     const form_entries = Object.fromEntries(form_data);
     const { error, data, success } = schema.safeParse(form_entries);
@@ -31,7 +31,7 @@ export const useForm = <T = Inputs>(schema: ZodSchema, options: Options<T>) => {
       }, {});
     setErrors(errors as T);
 
-    return data;
+    return { inputs: data };
   };
 
   return {
@@ -46,5 +46,5 @@ export const useForm = <T = Inputs>(schema: ZodSchema, options: Options<T>) => {
 type Inputs = { [x: string]: string } | undefined;
 
 type Options<T> = {
-  success: (inputs: T) => void;
+  success: (inputs: { inputs: T }) => void;
 };
