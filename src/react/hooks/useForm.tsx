@@ -35,7 +35,7 @@ export const useForm = (schema: ZodSchema, options: Options) => {
   };
 
   return {
-    form: form_ref,
+    ref: form_ref,
     inputs,
     errors,
     is_valid,
