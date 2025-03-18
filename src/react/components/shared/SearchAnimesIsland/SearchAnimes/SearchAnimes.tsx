@@ -22,7 +22,6 @@ export default function SearchAnimes() {
       <form
         ref={form.ref}
         className={css.form}
-        // suscribes/validas en los eventos que desees
         onChange={form.subscribe}
         onSubmit={(e) => {
           e.preventDefault();
