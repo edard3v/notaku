@@ -1,21 +1,21 @@
 import type { ZodSchema } from "astro/zod";
 import { useRef, useState } from "react";
 
-export const useForm = (schema: ZodSchema, options: Options) => {
+export const useForm = <T = Inputs>(schema: ZodSchema, options: Options<T>) => {
   const form_ref = useRef<HTMLFormElement>(null);
-  const [inputs, setInputs] = useState<Inputs>();
-  const [errors, setErrors] = useState<Errors>();
+  const [inputs, setInputs] = useState<T>();
+  const [errors, setErrors] = useState<T>();
   const [is_valid, setIs_valid] = useState(false);
 
   const subscribe = () => {
     const result = validate();
-    if (!result?.is_valid) return;
-    options.success(result.inputs);
+    if (!result) return;
+
+    options.success(result);
   };
 
-  const validate = (): Validate => {
-    if (!form_ref.current) return;
-    const form_data = new FormData(form_ref.current);
+  const validate = (): T => {
+    const form_data = new FormData(form_ref.current!);
     const form_entries = Object.fromEntries(form_data);
     const { error, data, success } = schema.safeParse(form_entries);
 
@@ -29,9 +29,9 @@ export const useForm = (schema: ZodSchema, options: Options) => {
         acc[key] = error[key];
         return acc;
       }, {});
-    setErrors(errors);
+    setErrors(errors as T);
 
-    return { inputs: data, is_valid: success };
+    return data;
   };
 
   return {
@@ -44,10 +44,7 @@ export const useForm = (schema: ZodSchema, options: Options) => {
 };
 
 type Inputs = { [x: string]: string } | undefined;
-type Errors = Inputs;
 
-type Options = {
-  success: (inputs: Inputs) => void;
+type Options<T> = {
+  success: (inputs: T) => void;
 };
-
-type Validate = { inputs: Inputs; is_valid: boolean } | undefined;

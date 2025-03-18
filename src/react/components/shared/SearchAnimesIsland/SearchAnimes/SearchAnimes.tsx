@@ -5,16 +5,14 @@ import { useStore } from "@nanostores/react";
 import { search_animes_store } from "./search_animes_store";
 import Btn from "@react/components/buttons/Btn/Btn";
 import { useForm } from "@react/hooks/use_form/useForm";
-import { search_animes_schema } from "./search_animes_schema";
+import { search_animes_schema, type SearchAnimesSchema } from "./search_animes_schema";
 
 export default function SearchAnimes() {
   const { is_visible } = useStore(search_animes_store.store);
 
-  const form = useForm(search_animes_schema, {
+  const form = useForm<SearchAnimesSchema>(search_animes_schema, {
     success(inputs) {
-      // Solo entrego la data si cumple las validaciones de zod y llega tipada
-      console.log(inputs);
-      // ...fetch aquí
+      console.log(inputs.title);
     },
   });
 
