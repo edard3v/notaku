@@ -1,11 +1,21 @@
 ---
+import css from "./IndexView.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { INDEX } from "./config";
 import FavoriteAnimes from "./FavoriteAnimes/FavoriteAnimes.astro";
+import Banner1 from "./Banner1/Banner1.astro";
+import Banner2 from "./Banner2/Banner2.astro";
+import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland";
 ---
 
 <Layout title={INDEX.display}>
-  <main>
+  <main class={css.index}>
     <FavoriteAnimes />
+    <Banner1 />
+    <div class={css.top_anime}>
+      <h2>Top anime</h2>
+      <TopAnimeIsland client:only="react" />
+    </div>
+    <Banner2 />
   </main>
 </Layout>

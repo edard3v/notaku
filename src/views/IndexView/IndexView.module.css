@@ -1,0 +1,10 @@
+.index {
+  .top_anime {
+    display: grid;
+    gap: var(--xl);
+
+    h2 {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+---
+import css from "./Banner1.module.css";
+import Image from "astro/components/Image.astro";
+import chainsaw_man from "./chainsaw_man.avif";
+---
+
+<picture class={css.banner}
+  ><Image
+    src={chainsaw_man}
+    alt="chain saw man"
+    widths={[768, 1440, chainsaw_man.width]}
+    sizes={`(max-width: 768px) 768px, (max-width: 1440px) 1440px, ${chainsaw_man.width}px`}
+    format="avif"
+  /></picture
+>

@@ -11,6 +11,7 @@
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
       "@react/*": ["./src/react/*"],
+      "@jikan/*": ["./src/jikan/*"],
       "@views/*": ["./src/views/*"]
     },
     "jsx": "react-jsx",
