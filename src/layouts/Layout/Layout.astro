@@ -41,6 +41,19 @@ const { title, ...rest } = Astro.props;
 <script>
   import { search_animes_store } from "@react/components/shared/SearchAnimesIsland/SearchAnimes/search_animes_store";
 
+  document.addEventListener("astro:page-load", () => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        search_animes_store.set_visible(false);
+      }
+
+      if (e.ctrlKey && e.key === "Escape") {
+        e.preventDefault();
+        search_animes_store.set_visible(true);
+      }
+    });
+  });
+
   document.addEventListener("astro:before-swap", () => {
     search_animes_store.set_visible(false);
   });
