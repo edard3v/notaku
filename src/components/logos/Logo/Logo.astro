@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import logo from "./notaku.png";
-import Image from "astro/components/Image.astro";
+import logo from "./notaku.avif";
 
 interface Props extends HTMLAttributes<"picture"> {}
 
@@ -9,7 +8,7 @@ const { class: cls, ...rest } = Astro.props;
 ---
 
 <picture {...rest} class:list={["logo", cls]}>
-  <Image src={logo} alt="logo" format="avif" width={65} quality={"high"} />
+  <img src={logo.src} alt="logo" width={65} height={23} />
 </picture>
 
 <style>
