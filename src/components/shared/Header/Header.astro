@@ -2,12 +2,11 @@
 import { INDEX } from "@views/IndexView/config";
 import css from "./Header.module.css";
 import Link from "@components/links/Link/Link.astro";
-import Logo from "@components/logos/Logo/Logo.astro";
 ---
 
 <header class={css.header}>
   <nav>
-    <Link href={INDEX.href}><Logo /></Link>
+    <Link href={INDEX.href}>{INDEX.display}</Link>
     <button id="header_search">🔍️</button>
   </nav>
 </header>
