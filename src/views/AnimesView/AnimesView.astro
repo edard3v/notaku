@@ -19,8 +19,6 @@ import AnimesIsland from "./AnimesIsland/AnimesIsland";
 
   document.addEventListener("astro:page-load", () => {
     const title = search_animes_store.store.get().title;
-    const animes_title = dom.select("animes_title");
-    if (!animes_title) return;
-    animes_title.textContent = capitalize_first(title) + "🔍️";
+    dom.select("animes_title")?.prepend(capitalize_first(title));
   });
 </script>
