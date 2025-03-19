@@ -1,4 +1,4 @@
 export const INDEX = {
   href: "/",
-  display: "Inicio",
+  display: "Notaku",
 };
