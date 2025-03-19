@@ -9,12 +9,19 @@ const { class: cls, ...rest } = Astro.props;
 ---
 
 <picture {...rest} class:list={["logo", cls]}>
-  <Image src={logo} alt="logo" format="avif" width={65} height={23} loading={"eager"} priority />
+  <Image
+    src={logo}
+    alt="logo"
+    format="avif"
+    width={65}
+    height={23}
+    loading={"eager"}
+    decoding={"sync"}
+  />
 </picture>
 
 <style>
   .logo {
     max-width: 65px;
-    overflow: hidden;
   }
 </style>
