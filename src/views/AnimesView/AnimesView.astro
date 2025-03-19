@@ -18,8 +18,6 @@ import AnimesIsland from "./AnimesIsland/AnimesIsland";
   import { dom } from "@utils/dom/dom";
 
   document.addEventListener("astro:page-load", () => {
-    console.log(search_animes_store.store.get().title);
-
     const title = search_animes_store.store.get().title;
     const animes_title = dom.select("animes_title") as HTMLElement;
     animes_title.textContent = capitalize_first(title) + "🔍️";
