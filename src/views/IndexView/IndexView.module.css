@@ -1,4 +1,5 @@
 .index {
+  padding-bottom: var(--sm);
   .top_anime {
     display: grid;
     gap: var(--xl);

@@ -3,6 +3,10 @@ import Network from "../../navs/Network/Network.astro";
 ---
 
 <footer>
+  <div class="short">
+    <span>Ctrl + Esc</span>
+    <span>Esc</span>
+  </div>
   <Network class={"network"} />
 </footer>
 
@@ -12,8 +16,20 @@ import Network from "../../navs/Network/Network.astro";
     justify-items: center;
     gap: var(--lg);
 
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(50deg, var(--primary), var(--secondary));
+
     text-align: center;
     padding: var(--xl);
+
+    .short {
+      display: flex;
+      gap: var(--md);
+
+      span {
+        border-radius: var(--md);
+        padding: var(--sm) var(--lg);
+        background-color: var(--bg_surf);
+      }
+    }
   }
 </style>

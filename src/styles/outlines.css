@@ -1,4 +1,4 @@
 :root {
-  --outline: 2px solid var(--primary);
+  --outline: 2px solid var(--green);
   --err_outline: 2px solid var(--red);
 }
