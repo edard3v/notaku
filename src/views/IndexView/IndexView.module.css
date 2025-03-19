@@ -1,5 +1,4 @@
 .index {
-  padding-bottom: var(--sm);
   .top_anime {
     display: grid;
     gap: var(--xl);
@@ -10,6 +9,7 @@
   }
 
   .top_characters {
+    padding-top: var(--xl);
     h2 {
       text-align: center;
     }

@@ -3,7 +3,7 @@
   padding: var(--xl);
 
   .slide {
-    min-width: 300px;
+    min-width: 280px;
 
     a {
       width: 100%;
