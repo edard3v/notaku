@@ -9,7 +9,11 @@ export default function AnimesIsland() {
   return (
     <div className={css.animes}>
       {animes.data.map((item) => (
-        <div key={item.mal_id}>{item.title}</div>
+        <div key={item.mal_id}>
+          <h2>{item.title}</h2>
+          <p>{item.synopsis}</p>
+          <img src={item.images.webp.large_image_url} alt={item.title} />
+        </div>
       ))}
     </div>
   );
