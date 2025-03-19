@@ -9,17 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "astro": "5.5.2",
     "@astrojs/react": "4.2.1",
+    "astro-icon": "1.1.5",
+    "nanostores": "0.11.4",
+    "@nanostores/react": "0.8.4",
     "@fontsource-variable/jost": "5.2.5",
     "@justinribeiro/lite-youtube": "1.7.1",
-    "@nanostores/react": "0.8.4",
     "@tanstack/query-sync-storage-persister": "5.68.0",
     "@tanstack/react-query": "5.68.0",
     "@tanstack/react-query-persist-client": "5.68.0",
-    "astro": "5.5.2",
-    "astro-icon": "1.1.5",
     "keen-slider": "6.8.6",
-    "nanostores": "0.11.4",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
