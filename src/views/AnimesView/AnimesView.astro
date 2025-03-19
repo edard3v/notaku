@@ -1,0 +1,12 @@
+---
+import Layout from "@layouts/Layout/Layout.astro";
+import { ANIMES } from "./config";
+import AnimesIsland from "./AnimesIsland";
+---
+
+<Layout title={ANIMES.display}>
+  <main>
+    <h1>Animes</h1>
+    <AnimesIsland client:only="react" />
+  </main>
+</Layout>
