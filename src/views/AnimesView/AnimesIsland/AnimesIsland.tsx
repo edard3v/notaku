@@ -1,3 +1,4 @@
+import css from "./AnimesIsland.module.css";
 import { useStore } from "@nanostores/react";
 import { search_animes_store } from "@react/components/shared/SearchAnimesIsland/SearchAnimes/search_animes_store";
 
@@ -6,7 +7,7 @@ export default function AnimesIsland() {
 
   if (!animes) return null;
   return (
-    <div>
+    <div className={css.animes}>
       {animes.data.map((item) => (
         <div key={item.mal_id}>{item.title}</div>
       ))}

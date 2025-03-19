@@ -1,11 +1,12 @@
 ---
+import css from "./AnimesView.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { ANIMES } from "./config";
-import AnimesIsland from "./AnimesIsland";
+import AnimesIsland from "./AnimesIsland/AnimesIsland";
 ---
 
 <Layout title={ANIMES.display}>
-  <main>
+  <main class={css.animes}>
     <h1>Animes</h1>
     <AnimesIsland client:only="react" />
   </main>
