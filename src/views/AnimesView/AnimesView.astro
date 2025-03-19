@@ -7,7 +7,21 @@ import AnimesIsland from "./AnimesIsland/AnimesIsland";
 
 <Layout title={ANIMES.display}>
   <main class={css.animes}>
-    <h1>Animes</h1>
+    <h1 id="animes_title">{" "}🔍️</h1>
     <AnimesIsland client:only="react" />
   </main>
 </Layout>
+
+<script>
+  import { search_animes_store } from "@react/components/shared/SearchAnimesIsland/SearchAnimes/search_animes_store";
+  import { capitalize_first } from "@utils/capitalize_first";
+  import { dom } from "@utils/dom/dom";
+
+  document.addEventListener("astro:page-load", () => {
+    console.log(search_animes_store.store.get().title);
+
+    const title = search_animes_store.store.get().title;
+    const animes_title = dom.select("animes_title") as HTMLElement;
+    animes_title.textContent = capitalize_first(title) + "🔍️";
+  });
+</script>

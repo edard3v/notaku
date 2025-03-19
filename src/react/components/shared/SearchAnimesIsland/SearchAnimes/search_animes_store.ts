@@ -4,12 +4,18 @@ import type { SearchAnimesFetchRes } from "./search_animes_fetch/types";
 type Store = {
   is_visible: boolean;
   animes?: SearchAnimesFetchRes;
+  title: string;
 };
 
 const store = () => {
   const store = map<Store>({
     is_visible: false,
+    title: "",
   });
+
+  const set_title = (title: string) => {
+    store.setKey("title", title);
+  };
 
   const set_animes = (animes: SearchAnimesFetchRes) => {
     store.setKey("animes", animes);
@@ -25,6 +31,7 @@ const store = () => {
 
   return {
     store,
+    set_title,
     set_visible,
     set_animes,
     toggle_visible,

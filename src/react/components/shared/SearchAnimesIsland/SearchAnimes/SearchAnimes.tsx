@@ -23,7 +23,9 @@ export default function SearchAnimes() {
 
   const form = useForm<SearchAnimesSchema>(search_animes_schema, {
     success({ inputs }) {
-      setTitle(inputs.title.toLocaleLowerCase());
+      const title = inputs.title.toLowerCase();
+      search_animes_store.set_title(title);
+      setTitle(title);
     },
   });
 
