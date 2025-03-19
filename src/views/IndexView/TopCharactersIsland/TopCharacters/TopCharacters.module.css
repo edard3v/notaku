@@ -1,0 +1,26 @@
+.top_characters {
+  position: relative;
+  padding: var(--xl);
+
+  .slide {
+    min-width: 300px;
+
+    a {
+      width: 100%;
+      height: 70%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    p {
+      padding: var(--lg);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

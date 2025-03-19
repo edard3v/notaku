@@ -6,6 +6,7 @@ import FavoriteAnimes from "./FavoriteAnimes/FavoriteAnimes.astro";
 import Banner1 from "./Banner1/Banner1.astro";
 import Banner2 from "./Banner2/Banner2.astro";
 import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland";
+import TopCharactersIsland from "./TopCharactersIsland/TopCharactersIsland";
 ---
 
 <Layout title={INDEX.display}>
@@ -17,5 +18,9 @@ import TopAnimeIsland from "./TopAnimeIsland/TopAnimeIsland";
       <TopAnimeIsland client:only="react" />
     </div>
     <Banner2 />
+    <div class={css.top_characters}>
+      <h2>Mejores personajes</h2>
+      <TopCharactersIsland client:only="react" />
+    </div>
   </main>
 </Layout>
