@@ -2,7 +2,7 @@ import "@justinribeiro/lite-youtube";
 import css from "./LiteYoutube.module.css";
 import { cls } from "@utils/cls";
 import Play from "@react/components/icons/Play";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type HTMLAttributes } from "react";
 import type { LiteYTEmbed } from "@justinribeiro/lite-youtube";
 
 export default function LiteYoutube(props: Props) {
@@ -31,3 +31,7 @@ export default function LiteYoutube(props: Props) {
     </div>
   );
 }
+
+type Props = HTMLAttributes<HTMLDivElement> & {
+  videoid: string;
+};
