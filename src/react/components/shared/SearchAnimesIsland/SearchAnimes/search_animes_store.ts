@@ -1,5 +1,5 @@
 import { map } from "nanostores";
-import { SearchAnimesFetchRes } from "./search_animes_fetch/types.ts";
+import { type SearchAnimesFetchRes } from "./search_animes_fetch/types.ts";
 
 type Store = {
   is_visible: boolean;
