@@ -30,6 +30,7 @@
       @media (max-width: 1024px) {
         justify-self: center;
         max-width: 300px;
+        max-height: 400px;
       }
     }
 
